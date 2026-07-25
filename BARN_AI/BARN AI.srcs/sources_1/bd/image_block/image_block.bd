@@ -404,6 +404,9 @@
           "PCW_I2C_RESET_ENABLE": {
             "value": "1"
           },
+          "PCW_IRQ_F2P_INTR": {
+            "value": "1"
+          },
           "PCW_IRQ_F2P_MODE": {
             "value": "DIRECT"
           },
@@ -1222,6 +1225,9 @@
           },
           "PCW_USE_CROSS_TRIGGER": {
             "value": "0"
+          },
+          "PCW_USE_FABRIC_INTERRUPT": {
+            "value": "1"
           },
           "PCW_USE_M_AXI_GP0": {
             "value": "1"
@@ -3204,6 +3210,12 @@
       }
     },
     "nets": {
+      "axi_vdma_0_s2mm_introut": {
+        "ports": [
+          "axi_vdma_0/s2mm_introut",
+          "processing_system7_0/IRQ_F2P"
+        ]
+      },
       "axil_regfile_0_mux_sel": {
         "ports": [
           "axil_regfile_0/mux_sel",

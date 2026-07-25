@@ -75,7 +75,7 @@ set_property ip_output_repo {c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_verilog -library xil_defaultlib {{C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/hdl/image_block_wrapper.v}}
+read_verilog -library xil_defaultlib {{C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.srcs/sources_1/imports/hdl/image_block_wrapper.v}}
 add_files {{C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.srcs/sources_1/bd/image_block/image_block.bd}}
 set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_processing_system7_0_0/image_block_processing_system7_0_0.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axi_vdma_0_0/image_block_axi_vdma_0_0.xdc}}]
@@ -120,6 +120,7 @@ set_property used_in_implementation false [get_files -all {{c:/Users/user/Deskto
 set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_rst_ps7_0_100M_0/image_block_rst_ps7_0_100M_0_board.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_rst_ps7_0_100M_0/image_block_rst_ps7_0_100M_0_ooc.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axi_mem_intercon_imp_auto_pc_0/image_block_axi_mem_intercon_imp_auto_pc_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_conv_b_0/image_block_conv_b_0_ooc.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/image_block_ooc.xdc}}]
 
 OPTRACE "Adding files" END { }

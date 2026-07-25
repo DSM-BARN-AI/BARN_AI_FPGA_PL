@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1784513490" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/image_block_wrapper.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1784988584" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/image_block_wrapper.dcp">
+  <File Type="PA-TCL" Name="image_block_wrapper.tcl"/>
   <File Type="REPORTS-TCL" Name="image_block_wrapper_reports.tcl"/>
+  <File Type="RDS-RDS" Name="image_block_wrapper.vds"/>
+  <File Type="RDS-PROPCONSTRS" Name="image_block_wrapper_drc_synth.rpt"/>
   <File Type="RDS-UTIL" Name="image_block_wrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="image_block_wrapper_utilization_synth.pb"/>
-  <File Type="PA-TCL" Name="image_block_wrapper.tcl"/>
-  <File Type="RDS-RDS" Name="image_block_wrapper.vds"/>
   <File Type="RDS-DCP" Name="image_block_wrapper.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="image_block_wrapper_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="image_block_wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../../FPGA_practice/rtl/axis_tpg.v">
@@ -22,6 +25,27 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../../FPGA_practice/rtl/axis_demosaic.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../FPGA_practice/rtl/axis_vid_mux.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../FPGA_practice/rtl/axis_gamma.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/bd/image_block/image_block.bd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -29,8 +53,10 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PGENDIR/sources_1/bd/image_block/hdl/image_block_wrapper.v">
+    <File Path="$PSRCDIR/sources_1/imports/hdl/image_block_wrapper.v">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PGENDIR/sources_1/bd/image_block/hdl/image_block_wrapper.v"/>
+        <Attr Name="ImportTime" Val="1784940553"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -66,10 +92,12 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2025"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_tpg_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_vid_mux_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="image_block_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="image_block_axi_vdma_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="image_block_axi_smc_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="image_block_rst_ps7_0_100M_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_tpg_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_demosaic_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_tpg_B_0"/>
   <BlockFileSet Type="BlockSrcs" Name="image_block_axil_regfile_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_gamma_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_conv_b_0"/>
 </GenRun>

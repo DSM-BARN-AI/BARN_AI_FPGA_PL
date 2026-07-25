@@ -1,75 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7z020clg400-1" LaunchTime="1784513492">
+<GenRun Id="impl_1" LaunchPart="xc7z020clg400-1" LaunchTime="1784988587">
+  <File Type="PA-TCL" Name="image_block_wrapper.tcl"/>
   <File Type="REPORTS-TCL" Name="image_block_wrapper_reports.tcl"/>
-  <File Type="ROUTE-PWR-SUM" Name="image_block_wrapper_power_summary_routed.pb"/>
-  <File Type="BITSTR-MMI" Name="image_block_wrapper.mmi"/>
+  <File Type="INIT-TIMING" Name="image_block_wrapper_timing_summary_init.rpt"/>
+  <File Type="OPT-DCP" Name="image_block_wrapper_opt.dcp"/>
   <File Type="OPT-DRC" Name="image_block_wrapper_drc_opted.rpt"/>
-  <File Type="BG-DRC" Name="image_block_wrapper.drc"/>
-  <File Type="ROUTE-STATUS-PB" Name="image_block_wrapper_route_status.pb"/>
-  <File Type="BG-BGN" Name="image_block_wrapper.bgn"/>
+  <File Type="OPT-UTIL" Name="image_block_wrapper_utilization_opted.rpt"/>
+  <File Type="OPT-UTIL-PB" Name="image_block_wrapper_utilization_opted.pb"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="image_block_wrapper_methodology_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="image_block_wrapper.hwdef"/>
+  <File Type="OPT-TIMING" Name="image_block_wrapper_timing_summary_opted.rpt"/>
+  <File Type="OPT-RQA-PB" Name="image_block_wrapper_rqa_opted.pb"/>
+  <File Type="PWROPT-DCP" Name="image_block_wrapper_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="image_block_wrapper_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="image_block_wrapper_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="image_block_wrapper_placed.dcp"/>
+  <File Type="PLACE-IO" Name="image_block_wrapper_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="image_block_wrapper_clock_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL" Name="image_block_wrapper_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL-PB" Name="image_block_wrapper_utilization_placed.pb"/>
-  <File Type="PLACE-IO" Name="image_block_wrapper_io_placed.rpt"/>
-  <File Type="BG-BIN" Name="image_block_wrapper.bin"/>
   <File Type="PLACE-CTRL" Name="image_block_wrapper_control_sets_placed.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="image_block_wrapper_power_routed.rpx"/>
-  <File Type="BITSTR-MSK" Name="image_block_wrapper.msk"/>
-  <File Type="BITSTR-RBT" Name="image_block_wrapper.rbt"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="image_block_wrapper_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="image_block_wrapper_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-STATUS" Name="image_block_wrapper_route_status.rpt"/>
-  <File Type="PA-TCL" Name="image_block_wrapper.tcl"/>
-  <File Type="ROUTE-PWR" Name="image_block_wrapper_power_routed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="image_block_wrapper_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="image_block_wrapper_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="image_block_wrapper_timing_summary_placed.rpt"/>
+  <File Type="PLACE-RQA-PB" Name="image_block_wrapper_rqa_placed.pb"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="image_block_wrapper_postplace_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="image_block_wrapper_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="image_block_wrapper_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="image_block_wrapper_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-TIMING" Name="image_block_wrapper_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="image_block_wrapper_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="image_block_wrapper_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="image_block_wrapper_routed_bb.dcp"/>
+  <File Type="ROUTE-UTIL" Name="image_block_wrapper_utilization_routed.rpt"/>
+  <File Type="ROUTE-UTIL-PB" Name="image_block_wrapper_utilization_routed.pb"/>
   <File Type="ROUTE-DRC" Name="image_block_wrapper_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-RPX" Name="image_block_wrapper_drc_routed.rpx"/>
   <File Type="ROUTE-DRC-PB" Name="image_block_wrapper_drc_routed.pb"/>
-  <File Type="BITSTR-SYSDEF" Name="image_block_wrapper.sysdef"/>
+  <File Type="ROUTE-DRC-RPX" Name="image_block_wrapper_drc_routed.rpx"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="image_block_wrapper_methodology_drc_routed.rpt"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="image_block_wrapper_methodology_drc_routed.rpx"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="image_block_wrapper.ltx"/>
   <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="image_block_wrapper_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="image_block_wrapper_power_routed.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="image_block_wrapper_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="image_block_wrapper_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="image_block_wrapper_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="image_block_wrapper_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="image_block_wrapper_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="image_block_wrapper_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="image_block_wrapper_timing_summary_routed.rpx"/>
   <File Type="ROUTE-SIMILARITY" Name="image_block_wrapper_incremental_reuse_routed.rpt"/>
-  <File Type="RDI-RDI" Name="image_block_wrapper.vdi"/>
   <File Type="ROUTE-CLK" Name="image_block_wrapper_clock_utilization_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW" Name="image_block_wrapper_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="image_block_wrapper_bus_skew_routed.rpx"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="image_block_wrapper_bus_skew_routed.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="image_block_wrapper_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="image_block_wrapper_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="image_block_wrapper_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="image_block_wrapper_bus_skew_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="image_block_wrapper_bus_skew_postroute_physopted.rpx"/>
-  <File Type="BG-BIT" Name="image_block_wrapper.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="image_block_wrapper_bus_skew_postroute_physopted.pb"/>
-  <File Type="BITSTR-NKY" Name="image_block_wrapper.nky"/>
-  <File Type="BITSTR-BMM" Name="image_block_wrapper_bd.bmm"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="OPT-HWDEF" Name="image_block_wrapper.hwdef"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="image_block_wrapper_incremental_reuse_pre_placed.rpt"/>
-  <File Type="ROUTE-DCP" Name="image_block_wrapper_routed.dcp"/>
-  <File Type="ROUTE-ERROR-DCP" Name="image_block_wrapper_routed_error.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="image_block_wrapper_routed_bb.dcp"/>
-  <File Type="ROUTE-TIMING-PB" Name="image_block_wrapper_timing_summary_routed.pb"/>
-  <File Type="OPT-DCP" Name="image_block_wrapper_opt.dcp"/>
-  <File Type="PLACE-DCP" Name="image_block_wrapper_placed.dcp"/>
-  <File Type="PWROPT-DCP" Name="image_block_wrapper_pwropt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="image_block_wrapper_postplace_pwropt.dcp"/>
-  <File Type="PHYSOPT-DCP" Name="image_block_wrapper_physopt.dcp"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="image_block_wrapper_bus_skew_routed.rpx"/>
+  <File Type="ROUTE-RQS-PB" Name="image_block_wrapper_rqs_routed.pb"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="image_block_wrapper_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="image_block_wrapper_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="image_block_wrapper_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="image_block_wrapper_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="image_block_wrapper_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="image_block_wrapper_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="image_block_wrapper_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="image_block_wrapper_bus_skew_postroute_physopted.rpx"/>
+  <File Type="NOC_TRAFFIC_SPEC_FILE" Name="image_block_wrapper.nts"/>
+  <File Type="NOC_SOLUTION_FILE" Name="image_block_wrapper.ncr"/>
+  <File Type="BG-BIT" Name="image_block_wrapper.bit"/>
+  <File Type="BG-BIN" Name="image_block_wrapper.bin"/>
+  <File Type="BITSTR-MSK" Name="image_block_wrapper.msk"/>
+  <File Type="BITSTR-RBT" Name="image_block_wrapper.rbt"/>
+  <File Type="BITSTR-NKY" Name="image_block_wrapper.nky"/>
+  <File Type="BITSTR-BMM" Name="image_block_wrapper_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="image_block_wrapper.mmi"/>
   <File Type="PDI-FILE" Name="image_block_wrapper.pdi"/>
   <File Type="BOOT-PDI-FILE" Name="image_block_wrapper_boot.pdi"/>
   <File Type="PL-PDI-FILE" Name="image_block_wrapper_pld.pdi"/>
   <File Type="RCFI_FILE" Name="image_block_wrapper.rcfi"/>
   <File Type="CFI_FILE" Name="image_block_wrapper.cfi"/>
   <File Type="RNPI_FILE" Name="image_block_wrapper.rnpi"/>
+  <File Type="RCDO-FILE" Name="image_block_wrapper.rcdo"/>
+  <File Type="MARKER-RNPI-FILE" Name="image_block_wrapper_markers.rnpi"/>
+  <File Type="MARKER-RCDO-FILE" Name="image_block_wrapper_markers.rcdo"/>
+  <File Type="BOOT_RNPI_FILE" Name="image_block_wrapper_boot.rnpi"/>
+  <File Type="BOOT_MARKER_RNPI_FILE" Name="image_block_wrapper_boot_markers.rnpi"/>
+  <File Type="PL_RNPI_FILE" Name="image_block_wrapper_pld.rnpi"/>
+  <File Type="PL_MARKER_RNPI_FILE" Name="image_block_wrapper_pld_markers.rnpi"/>
+  <File Type="PL_MASK_RNPI_FILE" Name="image_block_wrapper_pld_mask.rnpi"/>
+  <File Type="PL_SHUTDOWN_RNPI_FILE" Name="image_block_wrapper_pld_shutdown.rnpi"/>
+  <File Type="PL_UNMASK_RNPI_FILE" Name="image_block_wrapper_pld_unmask.rnpi"/>
+  <File Type="PL-RCDO-FILE" Name="image_block_wrapper_pld.rcdo"/>
+  <File Type="PL-CLEAR-RCDO-FILE" Name="image_block_wrapper_pld_clear.rcdo"/>
+  <File Type="PL_MARKER_RCDO_FILE" Name="image_block_wrapper_pld_markers.rcdo"/>
+  <File Type="PL_MASK_RCDO_FILE" Name="image_block_wrapper_pld_mask.rcdo"/>
+  <File Type="PL_UNMASK_MARKER_RCDO_FILE" Name="image_block_wrapper_pld_unmask_markers.rcdo"/>
+  <File Type="PL_UNMASK_RCDO_FILE" Name="image_block_wrapper_pld_unmask.rcdo"/>
   <File Type="NPI_FILE" Name="image_block_wrapper.npi"/>
   <File Type="RBD_FILE" Name="image_block_wrapper.rbd"/>
-  <File Type="ROUTE-RQS" Name="image_block_wrapper_routed.rqs"/>
-  <File Type="POSTROUTE-PHYSOPT-RQS" Name="image_block_wrapper_postroute_physopted.rqs"/>
-  <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <File Type="MMI-FILE" Name="image_block_wrapper.mmi"/>
   <File Type="BIF-FILE" Name="image_block_wrapper.bif"/>
   <File Type="BOOT-BIF-FILE" Name="image_block_wrapper_boot.bif"/>
@@ -77,24 +102,17 @@
   <File Type="LTX-FILE" Name="image_block_wrapper.ltx"/>
   <File Type="BOOT-LTX-FILE" Name="image_block_wrapper_boot.ltx"/>
   <File Type="PL-LTX-FILE" Name="image_block_wrapper_pld.ltx"/>
-  <File Type="RCDO-FILE" Name="image_block_wrapper.rcdo"/>
-  <File Type="MARKER-RCDO-FILE" Name="image_block_wrapper_markers.rcdo"/>
-  <File Type="PL-RCDO-FILE" Name="image_block_wrapper_pld.rcdo"/>
-  <File Type="MARKER-RNPI-FILE" Name="image_block_wrapper_markers.rnpi"/>
-  <File Type="BOOT_RNPI_FILE" Name="image_block_wrapper_boot.rnpi"/>
-  <File Type="PL_RNPI_FILE" Name="image_block_wrapper_pld.rnpi"/>
-  <File Type="BOOT_MARKER_RNPI_FILE" Name="image_block_wrapper_boot_markers.rnpi"/>
-  <File Type="PL_MARKER_RNPI_FILE" Name="image_block_wrapper_pld_markers.rnpi"/>
-  <File Type="PL_MASK_RNPI_FILE" Name="image_block_wrapper_pld_mask.rnpi"/>
-  <File Type="PL_SHUTDOWN_RNPI_FILE" Name="image_block_wrapper_pld_shutdown.rnpi"/>
-  <File Type="PL_UNMASK_RNPI_FILE" Name="image_block_wrapper_pld_unmask.rnpi"/>
-  <File Type="PL-CLEAR-RCDO-FILE" Name="image_block_wrapper_pld_clear.rcdo"/>
-  <File Type="PL_MARKER_RCDO_FILE" Name="image_block_wrapper_pld_markers.rcdo"/>
-  <File Type="PL_MASK_RCDO_FILE" Name="image_block_wrapper_pld_mask.rcdo"/>
-  <File Type="PL_UNMASK_MARKER_RCDO_FILE" Name="image_block_wrapper_pld_unmask_markers.rcdo"/>
-  <File Type="PL_UNMASK_RCDO_FILE" Name="image_block_wrapper_pld_unmask.rcdo"/>
-  <File Type="NOC_TRAFFIC_SPEC_FILE" Name="image_block_wrapper.nts"/>
-  <File Type="NOC_SOLUTION_FILE" Name="image_block_wrapper.ncr"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="image_block_wrapper.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="image_block_wrapper.sysdef"/>
+  <File Type="BG-BGN" Name="image_block_wrapper.bgn"/>
+  <File Type="BG-DRC" Name="image_block_wrapper.drc"/>
+  <File Type="RDI-RDI" Name="image_block_wrapper.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="ROUTE-RQS" Name="image_block_wrapper_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="image_block_wrapper_postroute_physopted.rqs"/>
+  <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../../FPGA_practice/rtl/axis_tpg.v">
@@ -111,6 +129,27 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../../FPGA_practice/rtl/axis_demosaic.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../FPGA_practice/rtl/axis_vid_mux.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../../FPGA_practice/rtl/axis_gamma.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/bd/image_block/image_block.bd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -118,8 +157,10 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PGENDIR/sources_1/bd/image_block/hdl/image_block_wrapper.v">
+    <File Path="$PSRCDIR/sources_1/imports/hdl/image_block_wrapper.v">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PGENDIR/sources_1/bd/image_block/hdl/image_block_wrapper.v"/>
+        <Attr Name="ImportTime" Val="1784940553"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -162,12 +203,13 @@
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
-    <Step Id="write_device_image"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_tpg_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_vid_mux_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="image_block_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="image_block_axi_vdma_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="image_block_axi_smc_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="image_block_rst_ps7_0_100M_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_tpg_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_demosaic_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_tpg_B_0"/>
   <BlockFileSet Type="BlockSrcs" Name="image_block_axil_regfile_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_gamma_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_conv_b_0"/>
 </GenRun>

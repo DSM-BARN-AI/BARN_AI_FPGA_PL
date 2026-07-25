@@ -31,4 +31,22 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block
 # IP: bd/image_block/ip/image_block_xlconst_status_0/image_block_xlconst_status_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_xlconst_status_0 || ORIG_REF_NAME==image_block_xlconst_status_0} -quiet] -quiet
 
+# IP: bd/image_block/ip/image_block_axis_tpg_B_0/image_block_axis_tpg_B_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_axis_tpg_B_0 || ORIG_REF_NAME==image_block_axis_tpg_B_0} -quiet] -quiet
+
+# IP: bd/image_block/ip/image_block_axis_demosaic_0_0/image_block_axis_demosaic_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_axis_demosaic_0_0 || ORIG_REF_NAME==image_block_axis_demosaic_0_0} -quiet] -quiet
+
+# IP: bd/image_block/ip/image_block_axis_vid_mux_0_0/image_block_axis_vid_mux_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_axis_vid_mux_0_0 || ORIG_REF_NAME==image_block_axis_vid_mux_0_0} -quiet] -quiet
+
+# IP: bd/image_block/ip/image_block_axis_gamma_0_0/image_block_axis_gamma_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_axis_gamma_0_0 || ORIG_REF_NAME==image_block_axis_gamma_0_0} -quiet] -quiet
+
+# IP: bd/image_block/ip/image_block_xlconst_pat2_0/image_block_xlconst_pat2_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_xlconst_pat2_0 || ORIG_REF_NAME==image_block_xlconst_pat2_0} -quiet] -quiet
+
+# IP: bd/image_block/ip/image_block_conv_b_0/image_block_conv_b_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_conv_b_0 || ORIG_REF_NAME==image_block_conv_b_0} -quiet] -quiet
+
 # XDC: c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/image_block_ooc.xdc

@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-//Date        : Sat Jul 25 09:49:13 2026
+//Date        : Sat Jul 25 23:08:14 2026
 //Host        : LAPTOP-MPD8ATBV running 64-bit major release  (build 9200)
 //Command     : generate_target image_block.bd
 //Design      : image_block
@@ -143,6 +143,7 @@ module image_block
   wire axi_vdma_0_M_AXI_S2MM_WREADY;
   wire [7:0]axi_vdma_0_M_AXI_S2MM_WSTRB;
   wire axi_vdma_0_M_AXI_S2MM_WVALID;
+  wire axi_vdma_0_s2mm_introut;
   wire axil_regfile_0_mux_sel;
   wire [23:0]axis_demosaic_0_m_axis_TDATA;
   wire axis_demosaic_0_m_axis_TLAST;
@@ -355,6 +356,7 @@ module image_block
         .m_axi_s2mm_wstrb(axi_vdma_0_M_AXI_S2MM_WSTRB),
         .m_axi_s2mm_wvalid(axi_vdma_0_M_AXI_S2MM_WVALID),
         .s2mm_frame_ptr_in({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .s2mm_introut(axi_vdma_0_s2mm_introut),
         .s_axi_lite_aclk(processing_system7_0_FCLK_CLK0),
         .s_axi_lite_araddr(axi_smc_M00_AXI_ARADDR),
         .s_axi_lite_arready(axi_smc_M00_AXI_ARREADY),
@@ -501,6 +503,7 @@ module image_block
         .DDR_WEB(DDR_we_n),
         .FCLK_CLK0(processing_system7_0_FCLK_CLK0),
         .FCLK_RESET0_N(processing_system7_0_FCLK_RESET0_N),
+        .IRQ_F2P(axi_vdma_0_s2mm_introut),
         .MIO(FIXED_IO_mio),
         .M_AXI_GP0_ACLK(processing_system7_0_FCLK_CLK0),
         .M_AXI_GP0_ARADDR(processing_system7_0_M_AXI_GP0_ARADDR),
