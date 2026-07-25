@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-//Date        : Thu Jul  9 19:04:23 2026
+//Date        : Sat Jul 25 09:49:13 2026
 //Host        : LAPTOP-MPD8ATBV running 64-bit major release  (build 9200)
 //Command     : generate_target image_block.bd
 //Design      : image_block
@@ -10,7 +10,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "image_block,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=image_block,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=10,numReposBlks=8,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=1,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=2,da_clkrst_cnt=1,da_ps7_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "image_block.hwdef" *) 
+(* CORE_GENERATION_INFO = "image_block,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=image_block,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=16,numReposBlks=14,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=USER,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "image_block.hwdef" *) 
 module image_block
    (DDR_addr,
     DDR_ba,
@@ -110,6 +110,23 @@ module image_block
   wire [31:0]axi_smc_M00_AXI_WDATA;
   wire axi_smc_M00_AXI_WREADY;
   wire axi_smc_M00_AXI_WVALID;
+  wire [11:0]axi_smc_M01_AXI_ARADDR;
+  wire axi_smc_M01_AXI_ARREADY;
+  wire axi_smc_M01_AXI_ARVALID;
+  wire [11:0]axi_smc_M01_AXI_AWADDR;
+  wire axi_smc_M01_AXI_AWREADY;
+  wire axi_smc_M01_AXI_AWVALID;
+  wire axi_smc_M01_AXI_BREADY;
+  wire [1:0]axi_smc_M01_AXI_BRESP;
+  wire axi_smc_M01_AXI_BVALID;
+  wire [31:0]axi_smc_M01_AXI_RDATA;
+  wire axi_smc_M01_AXI_RREADY;
+  wire [1:0]axi_smc_M01_AXI_RRESP;
+  wire axi_smc_M01_AXI_RVALID;
+  wire [31:0]axi_smc_M01_AXI_WDATA;
+  wire axi_smc_M01_AXI_WREADY;
+  wire [3:0]axi_smc_M01_AXI_WSTRB;
+  wire axi_smc_M01_AXI_WVALID;
   wire [31:0]axi_vdma_0_M_AXI_S2MM_AWADDR;
   wire [1:0]axi_vdma_0_M_AXI_S2MM_AWBURST;
   wire [3:0]axi_vdma_0_M_AXI_S2MM_AWCACHE;
@@ -126,11 +143,37 @@ module image_block
   wire axi_vdma_0_M_AXI_S2MM_WREADY;
   wire [7:0]axi_vdma_0_M_AXI_S2MM_WSTRB;
   wire axi_vdma_0_M_AXI_S2MM_WVALID;
+  wire axil_regfile_0_mux_sel;
+  wire [23:0]axis_demosaic_0_m_axis_TDATA;
+  wire axis_demosaic_0_m_axis_TLAST;
+  wire axis_demosaic_0_m_axis_TREADY;
+  wire axis_demosaic_0_m_axis_TUSER;
+  wire axis_demosaic_0_m_axis_TVALID;
+  wire [23:0]axis_gamma_0_m_axis_TDATA;
+  wire axis_gamma_0_m_axis_TLAST;
+  wire axis_gamma_0_m_axis_TREADY;
+  wire axis_gamma_0_m_axis_TUSER;
+  wire axis_gamma_0_m_axis_TVALID;
   wire [23:0]axis_tpg_0_m_axis_TDATA;
   wire axis_tpg_0_m_axis_TLAST;
   wire axis_tpg_0_m_axis_TREADY;
   wire axis_tpg_0_m_axis_TUSER;
   wire axis_tpg_0_m_axis_TVALID;
+  wire [23:0]axis_tpg_B_m_axis_TDATA;
+  wire axis_tpg_B_m_axis_TLAST;
+  wire axis_tpg_B_m_axis_TREADY;
+  wire axis_tpg_B_m_axis_TUSER;
+  wire axis_tpg_B_m_axis_TVALID;
+  wire [23:0]axis_vid_mux_0_m_axis_TDATA;
+  wire axis_vid_mux_0_m_axis_TLAST;
+  wire axis_vid_mux_0_m_axis_TREADY;
+  wire axis_vid_mux_0_m_axis_TUSER;
+  wire axis_vid_mux_0_m_axis_TVALID;
+  wire [7:0]conv_b_M_AXIS_TDATA;
+  wire conv_b_M_AXIS_TLAST;
+  wire conv_b_M_AXIS_TREADY;
+  wire [0:0]conv_b_M_AXIS_TUSER;
+  wire conv_b_M_AXIS_TVALID;
   wire processing_system7_0_FCLK_CLK0;
   wire processing_system7_0_FCLK_RESET0_N;
   wire [31:0]processing_system7_0_M_AXI_GP0_ARADDR;
@@ -172,7 +215,9 @@ module image_block
   wire [3:0]processing_system7_0_M_AXI_GP0_WSTRB;
   wire processing_system7_0_M_AXI_GP0_WVALID;
   wire [0:0]rst_ps7_0_100M_peripheral_aresetn;
-  wire [0:0]xlconstant_0_dout;
+  wire [1:0]xlconst_pat2_dout;
+  wire [31:0]xlconst_status_dout;
+  wire xlconstant_0_dout;
   wire [1:0]xlconstant_1_dout;
 
   image_block_axi_mem_intercon_0 axi_mem_intercon
@@ -233,6 +278,23 @@ module image_block
         .M00_AXI_wdata(axi_smc_M00_AXI_WDATA),
         .M00_AXI_wready(axi_smc_M00_AXI_WREADY),
         .M00_AXI_wvalid(axi_smc_M00_AXI_WVALID),
+        .M01_AXI_araddr(axi_smc_M01_AXI_ARADDR),
+        .M01_AXI_arready(axi_smc_M01_AXI_ARREADY),
+        .M01_AXI_arvalid(axi_smc_M01_AXI_ARVALID),
+        .M01_AXI_awaddr(axi_smc_M01_AXI_AWADDR),
+        .M01_AXI_awready(axi_smc_M01_AXI_AWREADY),
+        .M01_AXI_awvalid(axi_smc_M01_AXI_AWVALID),
+        .M01_AXI_bready(axi_smc_M01_AXI_BREADY),
+        .M01_AXI_bresp(axi_smc_M01_AXI_BRESP),
+        .M01_AXI_bvalid(axi_smc_M01_AXI_BVALID),
+        .M01_AXI_rdata(axi_smc_M01_AXI_RDATA),
+        .M01_AXI_rready(axi_smc_M01_AXI_RREADY),
+        .M01_AXI_rresp(axi_smc_M01_AXI_RRESP),
+        .M01_AXI_rvalid(axi_smc_M01_AXI_RVALID),
+        .M01_AXI_wdata(axi_smc_M01_AXI_WDATA),
+        .M01_AXI_wready(axi_smc_M01_AXI_WREADY),
+        .M01_AXI_wstrb(axi_smc_M01_AXI_WSTRB),
+        .M01_AXI_wvalid(axi_smc_M01_AXI_WVALID),
         .S00_AXI_araddr(processing_system7_0_M_AXI_GP0_ARADDR),
         .S00_AXI_arburst(processing_system7_0_M_AXI_GP0_ARBURST),
         .S00_AXI_arcache(processing_system7_0_M_AXI_GP0_ARCACHE),
@@ -311,12 +373,62 @@ module image_block
         .s_axi_lite_wready(axi_smc_M00_AXI_WREADY),
         .s_axi_lite_wvalid(axi_smc_M00_AXI_WVALID),
         .s_axis_s2mm_aclk(processing_system7_0_FCLK_CLK0),
-        .s_axis_s2mm_tdata(axis_tpg_0_m_axis_TDATA),
+        .s_axis_s2mm_tdata(axis_gamma_0_m_axis_TDATA),
         .s_axis_s2mm_tkeep({1'b1,1'b1,1'b1}),
-        .s_axis_s2mm_tlast(axis_tpg_0_m_axis_TLAST),
-        .s_axis_s2mm_tready(axis_tpg_0_m_axis_TREADY),
-        .s_axis_s2mm_tuser(axis_tpg_0_m_axis_TUSER),
-        .s_axis_s2mm_tvalid(axis_tpg_0_m_axis_TVALID));
+        .s_axis_s2mm_tlast(axis_gamma_0_m_axis_TLAST),
+        .s_axis_s2mm_tready(axis_gamma_0_m_axis_TREADY),
+        .s_axis_s2mm_tuser(axis_gamma_0_m_axis_TUSER),
+        .s_axis_s2mm_tvalid(axis_gamma_0_m_axis_TVALID));
+  image_block_axil_regfile_0_0 axil_regfile_0
+       (.aclk(processing_system7_0_FCLK_CLK0),
+        .aresetn(rst_ps7_0_100M_peripheral_aresetn),
+        .mux_sel(axil_regfile_0_mux_sel),
+        .pattern_sel(xlconstant_1_dout),
+        .s_axil_araddr(axi_smc_M01_AXI_ARADDR),
+        .s_axil_arready(axi_smc_M01_AXI_ARREADY),
+        .s_axil_arvalid(axi_smc_M01_AXI_ARVALID),
+        .s_axil_awaddr(axi_smc_M01_AXI_AWADDR),
+        .s_axil_awready(axi_smc_M01_AXI_AWREADY),
+        .s_axil_awvalid(axi_smc_M01_AXI_AWVALID),
+        .s_axil_bready(axi_smc_M01_AXI_BREADY),
+        .s_axil_bresp(axi_smc_M01_AXI_BRESP),
+        .s_axil_bvalid(axi_smc_M01_AXI_BVALID),
+        .s_axil_rdata(axi_smc_M01_AXI_RDATA),
+        .s_axil_rready(axi_smc_M01_AXI_RREADY),
+        .s_axil_rresp(axi_smc_M01_AXI_RRESP),
+        .s_axil_rvalid(axi_smc_M01_AXI_RVALID),
+        .s_axil_wdata(axi_smc_M01_AXI_WDATA),
+        .s_axil_wready(axi_smc_M01_AXI_WREADY),
+        .s_axil_wstrb(axi_smc_M01_AXI_WSTRB),
+        .s_axil_wvalid(axi_smc_M01_AXI_WVALID),
+        .status_in(xlconst_status_dout),
+        .tpg_enable(xlconstant_0_dout));
+  image_block_axis_demosaic_0_0 axis_demosaic_0
+       (.aclk(processing_system7_0_FCLK_CLK0),
+        .aresetn(rst_ps7_0_100M_peripheral_aresetn),
+        .m_axis_tdata(axis_demosaic_0_m_axis_TDATA),
+        .m_axis_tlast(axis_demosaic_0_m_axis_TLAST),
+        .m_axis_tready(axis_demosaic_0_m_axis_TREADY),
+        .m_axis_tuser(axis_demosaic_0_m_axis_TUSER),
+        .m_axis_tvalid(axis_demosaic_0_m_axis_TVALID),
+        .s_axis_tdata(conv_b_M_AXIS_TDATA),
+        .s_axis_tlast(conv_b_M_AXIS_TLAST),
+        .s_axis_tready(conv_b_M_AXIS_TREADY),
+        .s_axis_tuser(conv_b_M_AXIS_TUSER),
+        .s_axis_tvalid(conv_b_M_AXIS_TVALID));
+  image_block_axis_gamma_0_0 axis_gamma_0
+       (.aclk(processing_system7_0_FCLK_CLK0),
+        .aresetn(rst_ps7_0_100M_peripheral_aresetn),
+        .m_axis_tdata(axis_gamma_0_m_axis_TDATA),
+        .m_axis_tlast(axis_gamma_0_m_axis_TLAST),
+        .m_axis_tready(axis_gamma_0_m_axis_TREADY),
+        .m_axis_tuser(axis_gamma_0_m_axis_TUSER),
+        .m_axis_tvalid(axis_gamma_0_m_axis_TVALID),
+        .s_axis_tdata(axis_vid_mux_0_m_axis_TDATA),
+        .s_axis_tlast(axis_vid_mux_0_m_axis_TLAST),
+        .s_axis_tready(axis_vid_mux_0_m_axis_TREADY),
+        .s_axis_tuser(axis_vid_mux_0_m_axis_TUSER),
+        .s_axis_tvalid(axis_vid_mux_0_m_axis_TVALID));
   image_block_axis_tpg_0_0 axis_tpg_0
        (.aclk(processing_system7_0_FCLK_CLK0),
         .aresetn(rst_ps7_0_100M_peripheral_aresetn),
@@ -327,6 +439,48 @@ module image_block
         .m_axis_tuser(axis_tpg_0_m_axis_TUSER),
         .m_axis_tvalid(axis_tpg_0_m_axis_TVALID),
         .pattern_sel(xlconstant_1_dout));
+  image_block_axis_tpg_B_0 axis_tpg_B
+       (.aclk(processing_system7_0_FCLK_CLK0),
+        .aresetn(rst_ps7_0_100M_peripheral_aresetn),
+        .enable(xlconstant_0_dout),
+        .m_axis_tdata(axis_tpg_B_m_axis_TDATA),
+        .m_axis_tlast(axis_tpg_B_m_axis_TLAST),
+        .m_axis_tready(axis_tpg_B_m_axis_TREADY),
+        .m_axis_tuser(axis_tpg_B_m_axis_TUSER),
+        .m_axis_tvalid(axis_tpg_B_m_axis_TVALID),
+        .pattern_sel(xlconst_pat2_dout));
+  image_block_axis_vid_mux_0_0 axis_vid_mux_0
+       (.aclk(processing_system7_0_FCLK_CLK0),
+        .aresetn(rst_ps7_0_100M_peripheral_aresetn),
+        .m_axis_tdata(axis_vid_mux_0_m_axis_TDATA),
+        .m_axis_tlast(axis_vid_mux_0_m_axis_TLAST),
+        .m_axis_tready(axis_vid_mux_0_m_axis_TREADY),
+        .m_axis_tuser(axis_vid_mux_0_m_axis_TUSER),
+        .m_axis_tvalid(axis_vid_mux_0_m_axis_TVALID),
+        .s0_axis_tdata(axis_tpg_0_m_axis_TDATA),
+        .s0_axis_tlast(axis_tpg_0_m_axis_TLAST),
+        .s0_axis_tready(axis_tpg_0_m_axis_TREADY),
+        .s0_axis_tuser(axis_tpg_0_m_axis_TUSER),
+        .s0_axis_tvalid(axis_tpg_0_m_axis_TVALID),
+        .s1_axis_tdata(axis_demosaic_0_m_axis_TDATA),
+        .s1_axis_tlast(axis_demosaic_0_m_axis_TLAST),
+        .s1_axis_tready(axis_demosaic_0_m_axis_TREADY),
+        .s1_axis_tuser(axis_demosaic_0_m_axis_TUSER),
+        .s1_axis_tvalid(axis_demosaic_0_m_axis_TVALID),
+        .sel(axil_regfile_0_mux_sel));
+  image_block_conv_b_0 conv_b
+       (.aclk(processing_system7_0_FCLK_CLK0),
+        .aresetn(rst_ps7_0_100M_peripheral_aresetn),
+        .m_axis_tdata(conv_b_M_AXIS_TDATA),
+        .m_axis_tlast(conv_b_M_AXIS_TLAST),
+        .m_axis_tready(conv_b_M_AXIS_TREADY),
+        .m_axis_tuser(conv_b_M_AXIS_TUSER),
+        .m_axis_tvalid(conv_b_M_AXIS_TVALID),
+        .s_axis_tdata(axis_tpg_B_m_axis_TDATA),
+        .s_axis_tlast(axis_tpg_B_m_axis_TLAST),
+        .s_axis_tready(axis_tpg_B_m_axis_TREADY),
+        .s_axis_tuser(axis_tpg_B_m_axis_TUSER),
+        .s_axis_tvalid(axis_tpg_B_m_axis_TVALID));
   image_block_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_addr),
         .DDR_BankAddr(DDR_ba),
@@ -432,10 +586,10 @@ module image_block
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_ps7_0_100M_peripheral_aresetn),
         .slowest_sync_clk(processing_system7_0_FCLK_CLK0));
-  image_block_xlconstant_0_0 xlconstant_0
-       (.dout(xlconstant_0_dout));
-  image_block_xlconstant_0_1 xlconstant_1
-       (.dout(xlconstant_1_dout));
+  image_block_xlconst_pat2_0 xlconst_pat2
+       (.dout(xlconst_pat2_dout));
+  image_block_xlconst_status_0 xlconst_status
+       (.dout(xlconst_status_dout));
 endmodule
 
 module image_block_axi_mem_intercon_0

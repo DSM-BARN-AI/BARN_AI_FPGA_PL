@@ -1,0 +1,87 @@
+=== probe_rf (axil_regfile) PINS ===
+  /probe_rf/aclk
+  /probe_rf/aresetn
+  /probe_rf/pattern_sel
+  /probe_rf/s_axil_araddr
+  /probe_rf/s_axil_arready
+  /probe_rf/s_axil_arvalid
+  /probe_rf/s_axil_awaddr
+  /probe_rf/s_axil_awready
+  /probe_rf/s_axil_awvalid
+  /probe_rf/s_axil_bready
+  /probe_rf/s_axil_bresp
+  /probe_rf/s_axil_bvalid
+  /probe_rf/s_axil_rdata
+  /probe_rf/s_axil_rready
+  /probe_rf/s_axil_rresp
+  /probe_rf/s_axil_rvalid
+  /probe_rf/s_axil_wdata
+  /probe_rf/s_axil_wready
+  /probe_rf/s_axil_wstrb
+  /probe_rf/s_axil_wvalid
+  /probe_rf/status_in
+  /probe_rf/tpg_enable
+  INTF /probe_rf/s_axil
+=== probe_mux (axis_vid_mux) PINS ===
+  /probe_mux/aclk
+  /probe_mux/aresetn
+  /probe_mux/m_axis_tdata
+  /probe_mux/m_axis_tlast
+  /probe_mux/m_axis_tready
+  /probe_mux/m_axis_tuser
+  /probe_mux/m_axis_tvalid
+  /probe_mux/s0_axis_tdata
+  /probe_mux/s0_axis_tlast
+  /probe_mux/s0_axis_tready
+  /probe_mux/s0_axis_tuser
+  /probe_mux/s0_axis_tvalid
+  /probe_mux/s1_axis_tdata
+  /probe_mux/s1_axis_tlast
+  /probe_mux/s1_axis_tready
+  /probe_mux/s1_axis_tuser
+  /probe_mux/s1_axis_tvalid
+  /probe_mux/sel
+  INTF /probe_mux/m_axis
+  INTF /probe_mux/s0_axis
+  INTF /probe_mux/s1_axis
+=== probe_dem (axis_demosaic) PINS ===
+  /probe_dem/aclk
+  /probe_dem/aresetn
+  /probe_dem/m_axis_tdata
+  /probe_dem/m_axis_tlast
+  /probe_dem/m_axis_tready
+  /probe_dem/m_axis_tuser
+  /probe_dem/m_axis_tvalid
+  /probe_dem/s_axis_tdata
+  /probe_dem/s_axis_tlast
+  /probe_dem/s_axis_tready
+  /probe_dem/s_axis_tuser
+  /probe_dem/s_axis_tvalid
+  INTF /probe_dem/m_axis
+  INTF /probe_dem/s_axis
+=== probe_gam (axis_gamma) PINS ===
+  /probe_gam/aclk
+  /probe_gam/aresetn
+  /probe_gam/m_axis_tdata
+  /probe_gam/m_axis_tlast
+  /probe_gam/m_axis_tready
+  /probe_gam/m_axis_tuser
+  /probe_gam/m_axis_tvalid
+  /probe_gam/s_axis_tdata
+  /probe_gam/s_axis_tlast
+  /probe_gam/s_axis_tready
+  /probe_gam/s_axis_tuser
+  /probe_gam/s_axis_tvalid
+  INTF /probe_gam/m_axis
+  INTF /probe_gam/s_axis
+=== probe_tpg (axis_tpg) PINS ===
+  /probe_tpg/aclk
+  /probe_tpg/aresetn
+  /probe_tpg/enable
+  /probe_tpg/m_axis_tdata
+  /probe_tpg/m_axis_tlast
+  /probe_tpg/m_axis_tready
+  /probe_tpg/m_axis_tuser
+  /probe_tpg/m_axis_tvalid
+  /probe_tpg/pattern_sel
+  INTF /probe_tpg/m_axis

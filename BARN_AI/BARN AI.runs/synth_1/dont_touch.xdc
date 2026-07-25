@@ -10,12 +10,6 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block
 # IP: bd/image_block/ip/image_block_axis_tpg_0_0/image_block_axis_tpg_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_axis_tpg_0_0 || ORIG_REF_NAME==image_block_axis_tpg_0_0} -quiet] -quiet
 
-# IP: bd/image_block/ip/image_block_xlconstant_0_0/image_block_xlconstant_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_xlconstant_0_0 || ORIG_REF_NAME==image_block_xlconstant_0_0} -quiet] -quiet
-
-# IP: bd/image_block/ip/image_block_xlconstant_0_1/image_block_xlconstant_0_1.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_xlconstant_0_1 || ORIG_REF_NAME==image_block_xlconstant_0_1} -quiet] -quiet
-
 # IP: bd/image_block/ip/image_block_axi_vdma_0_0/image_block_axi_vdma_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_axi_vdma_0_0 || ORIG_REF_NAME==image_block_axi_vdma_0_0} -quiet] -quiet
 
@@ -31,4 +25,10 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block
 # IP: bd/image_block/ip/image_block_axi_mem_intercon_0/image_block_axi_mem_intercon_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_axi_mem_intercon_0 || ORIG_REF_NAME==image_block_axi_mem_intercon_0} -quiet] -quiet
 
-# XDC: c:/Users/user/Desktop/project/FPGA/BARN AI/BARN AI.gen/sources_1/bd/image_block/image_block_ooc.xdc
+# IP: bd/image_block/ip/image_block_axil_regfile_0_0/image_block_axil_regfile_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_axil_regfile_0_0 || ORIG_REF_NAME==image_block_axil_regfile_0_0} -quiet] -quiet
+
+# IP: bd/image_block/ip/image_block_xlconst_status_0/image_block_xlconst_status_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_xlconst_status_0 || ORIG_REF_NAME==image_block_xlconst_status_0} -quiet] -quiet
+
+# XDC: c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/image_block_ooc.xdc

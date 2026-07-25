@@ -479,7 +479,7 @@
         "PCW_ENET_RESET_ENABLE": [ { "value": "1", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "PCW_ENET_RESET_SELECT": [ { "value": "Share reset pin", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "PCW_ENET0_RESET_ENABLE": [ { "value": "0", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
-        "PCW_ENET0_RESET_IO": [ { "value": "<Select>", "resolve_type": "user", "usage": "all" } ],
+        "PCW_ENET0_RESET_IO": [ { "value": "<Select>", "resolve_type": "user", "enabled": false, "usage": "all" } ],
         "PCW_ENET1_PERIPHERAL_ENABLE": [ { "value": "0", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "PCW_ENET1_ENET1_IO": [ { "value": "<Select>", "resolve_type": "user", "enabled": false, "usage": "all" } ],
         "PCW_ENET1_GRP_MDIO_ENABLE": [ { "value": "0", "resolve_type": "user", "enabled": false, "usage": "all" } ],
@@ -1439,5 +1439,5 @@
       }
     }
   },
-  "checksum": "31befae2"
+  "checksum": "b9ed00d8"
 }
