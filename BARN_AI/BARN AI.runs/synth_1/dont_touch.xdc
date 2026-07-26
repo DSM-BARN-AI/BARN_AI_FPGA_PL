@@ -49,4 +49,10 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block
 # IP: bd/image_block/ip/image_block_conv_b_0/image_block_conv_b_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_conv_b_0 || ORIG_REF_NAME==image_block_conv_b_0} -quiet] -quiet
 
+# IP: bd/image_block/ip/image_block_axis_gaussian_0_0/image_block_axis_gaussian_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_axis_gaussian_0_0 || ORIG_REF_NAME==image_block_axis_gaussian_0_0} -quiet] -quiet
+
+# IP: bd/image_block/ip/image_block_axis_wb_0_0/image_block_axis_wb_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==image_block_axis_wb_0_0 || ORIG_REF_NAME==image_block_axis_wb_0_0} -quiet] -quiet
+
 # XDC: c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/image_block_ooc.xdc

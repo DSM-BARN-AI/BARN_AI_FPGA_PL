@@ -373,6 +373,30 @@
 						"TVALID": { "actual": "s_axis_tvalid"}
 					}
 				},
+				"/axis_gaussian_0/m_axis": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "m_axis_tdata[23:0]"},
+						"TLAST": { "actual": "m_axis_tlast"},
+						"TREADY": { "actual": "m_axis_tready"},
+						"TUSER": { "actual": "m_axis_tuser"},
+						"TVALID": { "actual": "m_axis_tvalid"}
+					}
+				},
+				"/axis_gaussian_0/s_axis": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "s_axis_tdata[23:0]"},
+						"TLAST": { "actual": "s_axis_tlast"},
+						"TREADY": { "actual": "s_axis_tready"},
+						"TUSER": { "actual": "s_axis_tuser"},
+						"TVALID": { "actual": "s_axis_tvalid"}
+					}
+				},
 				"/axis_tpg_0/m_axis": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
@@ -431,6 +455,30 @@
 						"TREADY": { "actual": "s1_axis_tready"},
 						"TUSER": { "actual": "s1_axis_tuser"},
 						"TVALID": { "actual": "s1_axis_tvalid"}
+					}
+				},
+				"/axis_wb_0/m_axis": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "m_axis_tdata[23:0]"},
+						"TLAST": { "actual": "m_axis_tlast"},
+						"TREADY": { "actual": "m_axis_tready"},
+						"TUSER": { "actual": "m_axis_tuser"},
+						"TVALID": { "actual": "m_axis_tvalid"}
+					}
+				},
+				"/axis_wb_0/s_axis": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARESETN": { "actual": "aresetn"},
+						"TDATA": { "actual": "s_axis_tdata[23:0]"},
+						"TLAST": { "actual": "s_axis_tlast"},
+						"TREADY": { "actual": "s_axis_tready"},
+						"TUSER": { "actual": "s_axis_tuser"},
+						"TVALID": { "actual": "s_axis_tvalid"}
 					}
 				},
 				"/conv_b/M_AXIS": {

@@ -3,8 +3,8 @@
 # SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
 # IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
 # SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-# Start of session at: Sat Jul 25 23:12:42 2026
-# Process ID         : 16252
+# Start of session at: Sun Jul 26 20:46:19 2026
+# Process ID         : 20460
 # Current directory  : C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1
 # Command line       : vivado.exe -log image_block_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source image_block_wrapper.tcl
 # Log file           : C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/image_block_wrapper.vds
@@ -19,6 +19,6 @@
 # Host memory        : 16845 MB
 # Swap memory        : 9126 MB
 # Total Virtual      : 25972 MB
-# Available Virtual  : 11007 MB
+# Available Virtual  : 7031 MB
 #-----------------------------------------------------------
 source image_block_wrapper.tcl -notrace

@@ -3,8 +3,8 @@
 # SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
 # IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
 # SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-# Start of session at: Sat Jul 25 23:12:42 2026
-# Process ID         : 16252
+# Start of session at: Sun Jul 26 20:46:19 2026
+# Process ID         : 20460
 # Current directory  : C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1
 # Command line       : vivado.exe -log image_block_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source image_block_wrapper.tcl
 # Log file           : C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/image_block_wrapper.vds
@@ -19,10 +19,10 @@
 # Host memory        : 16845 MB
 # Swap memory        : 9126 MB
 # Total Virtual      : 25972 MB
-# Available Virtual  : 11007 MB
+# Available Virtual  : 7031 MB
 #-----------------------------------------------------------
 source image_block_wrapper.tcl -notrace
-create_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 556.047 ; gain = 222.777
+create_project: Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 556.668 ; gain = 221.398
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/AMDDesignTools/2025.2/Vivado/data/ip'.
@@ -33,7 +33,7 @@ More information on inline hdl is available in UG994.
 Utility IP Component Instances:
  image_block_xlconst_status_0
 image_block_xlconst_pat2_0
-add_files: Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 614.887 ; gain = 58.840
+add_files: Time (s): cpu = 00:00:09 ; elapsed = 00:00:13 . Memory (MB): peak = 616.996 ; gain = 60.328
 Command: read_checkpoint -auto_incremental -incremental {C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.srcs/utils_1/imports/synth_1/image_block_wrapper.dcp}
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.srcs/utils_1/imports/synth_1/image_block_wrapper.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -46,67 +46,71 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 12316
+INFO: [Synth 8-7075] Helper process launched with PID 25208
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1392.574 ; gain = 541.254
+Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1392.465 ; gain = 541.934
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'image_block_wrapper' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.srcs/sources_1/imports/hdl/image_block_wrapper.v:13]
 INFO: [Synth 8-6157] synthesizing module 'image_block' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:13]
-INFO: [Synth 8-6157] synthesizing module 'image_block_axi_mem_intercon_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:598]
-INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_VHS1OY' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:760]
-INFO: [Synth 8-6157] synthesizing module 'image_block_axi_mem_intercon_imp_auto_pc_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axi_mem_intercon_imp_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'image_block_axi_mem_intercon_imp_auto_pc_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axi_mem_intercon_imp_auto_pc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_VHS1OY' (0#1) [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:760]
-INFO: [Synth 8-6155] done synthesizing module 'image_block_axi_mem_intercon_0' (0#1) [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:598]
-INFO: [Synth 8-6157] synthesizing module 'image_block_axi_smc_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axi_smc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'image_block_axi_smc_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axi_smc_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'M00_AXI_awprot' of module 'image_block_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:265]
-WARNING: [Synth 8-7071] port 'M00_AXI_wstrb' of module 'image_block_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:265]
-WARNING: [Synth 8-7071] port 'M00_AXI_arprot' of module 'image_block_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:265]
-WARNING: [Synth 8-7071] port 'M01_AXI_awprot' of module 'image_block_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:265]
-WARNING: [Synth 8-7071] port 'M01_AXI_arprot' of module 'image_block_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:265]
-WARNING: [Synth 8-7023] instance 'axi_smc' of module 'image_block_axi_smc_0' has 78 connections declared, but only 73 given [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:265]
-INFO: [Synth 8-6157] synthesizing module 'image_block_axi_vdma_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axi_vdma_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'image_block_axi_vdma_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axi_vdma_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 's2mm_frame_ptr_out' of module 'image_block_axi_vdma_0_0' is unconnected for instance 'axi_vdma_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:339]
-WARNING: [Synth 8-7023] instance 'axi_vdma_0' of module 'image_block_axi_vdma_0_0' has 45 connections declared, but only 44 given [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:339]
-INFO: [Synth 8-6157] synthesizing module 'image_block_axil_regfile_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axil_regfile_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'image_block_axil_regfile_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axil_regfile_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'image_block_axis_demosaic_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axis_demosaic_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'image_block_axis_demosaic_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axis_demosaic_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'image_block_axis_gamma_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axis_gamma_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'image_block_axis_gamma_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axis_gamma_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'image_block_axis_tpg_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axis_tpg_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'image_block_axis_tpg_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axis_tpg_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'image_block_axis_tpg_B_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axis_tpg_B_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'image_block_axis_tpg_B_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axis_tpg_B_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'image_block_axis_vid_mux_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axis_vid_mux_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'image_block_axis_vid_mux_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_axis_vid_mux_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'image_block_conv_b_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_conv_b_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'image_block_conv_b_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_conv_b_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'image_block_processing_system7_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_processing_system7_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'image_block_processing_system7_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_processing_system7_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'USB0_PORT_INDCTL' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:486]
-WARNING: [Synth 8-7071] port 'USB0_VBUS_PWRSELECT' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:486]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_ARREADY' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:486]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RLAST' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:486]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RVALID' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:486]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RRESP' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:486]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_BID' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:486]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RID' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:486]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RDATA' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:486]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RCOUNT' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:486]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_WCOUNT' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:486]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_RACOUNT' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:486]
-WARNING: [Synth 8-7071] port 'S_AXI_HP0_WACOUNT' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:486]
-WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'image_block_processing_system7_0_0' has 111 connections declared, but only 98 given [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:486]
-INFO: [Synth 8-6157] synthesizing module 'image_block_rst_ps7_0_100M_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_rst_ps7_0_100M_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'image_block_rst_ps7_0_100M_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-16252-LAPTOP-MPD8ATBV/realtime/image_block_rst_ps7_0_100M_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'mb_reset' of module 'image_block_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:585]
-WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'image_block_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:585]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'image_block_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:585]
-WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'image_block_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:585]
-WARNING: [Synth 8-7023] instance 'rst_ps7_0_100M' of module 'image_block_rst_ps7_0_100M_0' has 10 connections declared, but only 6 given [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:585]
+INFO: [Synth 8-6157] synthesizing module 'image_block_axi_mem_intercon_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:634]
+INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_VHS1OY' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:796]
+INFO: [Synth 8-6157] synthesizing module 'image_block_axi_mem_intercon_imp_auto_pc_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axi_mem_intercon_imp_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_axi_mem_intercon_imp_auto_pc_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axi_mem_intercon_imp_auto_pc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_VHS1OY' (0#1) [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:796]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_axi_mem_intercon_0' (0#1) [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:634]
+INFO: [Synth 8-6157] synthesizing module 'image_block_axi_smc_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axi_smc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_axi_smc_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axi_smc_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'M00_AXI_awprot' of module 'image_block_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:275]
+WARNING: [Synth 8-7071] port 'M00_AXI_wstrb' of module 'image_block_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:275]
+WARNING: [Synth 8-7071] port 'M00_AXI_arprot' of module 'image_block_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:275]
+WARNING: [Synth 8-7071] port 'M01_AXI_awprot' of module 'image_block_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:275]
+WARNING: [Synth 8-7071] port 'M01_AXI_arprot' of module 'image_block_axi_smc_0' is unconnected for instance 'axi_smc' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:275]
+WARNING: [Synth 8-7023] instance 'axi_smc' of module 'image_block_axi_smc_0' has 78 connections declared, but only 73 given [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:275]
+INFO: [Synth 8-6157] synthesizing module 'image_block_axi_vdma_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axi_vdma_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_axi_vdma_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axi_vdma_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 's2mm_frame_ptr_out' of module 'image_block_axi_vdma_0_0' is unconnected for instance 'axi_vdma_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:349]
+WARNING: [Synth 8-7023] instance 'axi_vdma_0' of module 'image_block_axi_vdma_0_0' has 45 connections declared, but only 44 given [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:349]
+INFO: [Synth 8-6157] synthesizing module 'image_block_axil_regfile_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axil_regfile_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_axil_regfile_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axil_regfile_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'image_block_axis_demosaic_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axis_demosaic_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_axis_demosaic_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axis_demosaic_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'image_block_axis_gamma_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axis_gamma_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_axis_gamma_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axis_gamma_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'image_block_axis_gaussian_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axis_gaussian_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_axis_gaussian_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axis_gaussian_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'image_block_axis_tpg_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axis_tpg_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_axis_tpg_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axis_tpg_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'image_block_axis_tpg_B_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axis_tpg_B_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_axis_tpg_B_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axis_tpg_B_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'image_block_axis_vid_mux_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axis_vid_mux_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_axis_vid_mux_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axis_vid_mux_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'image_block_axis_wb_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axis_wb_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_axis_wb_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_axis_wb_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'image_block_conv_b_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_conv_b_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_conv_b_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_conv_b_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'image_block_processing_system7_0_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_processing_system7_0_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_processing_system7_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'USB0_PORT_INDCTL' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:522]
+WARNING: [Synth 8-7071] port 'USB0_VBUS_PWRSELECT' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:522]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_ARREADY' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:522]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RLAST' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:522]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RVALID' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:522]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RRESP' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:522]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_BID' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:522]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RID' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:522]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RDATA' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:522]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RCOUNT' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:522]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_WCOUNT' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:522]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_RACOUNT' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:522]
+WARNING: [Synth 8-7071] port 'S_AXI_HP0_WACOUNT' of module 'image_block_processing_system7_0_0' is unconnected for instance 'processing_system7_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:522]
+WARNING: [Synth 8-7023] instance 'processing_system7_0' of module 'image_block_processing_system7_0_0' has 111 connections declared, but only 98 given [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:522]
+INFO: [Synth 8-6157] synthesizing module 'image_block_rst_ps7_0_100M_0' [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_rst_ps7_0_100M_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_rst_ps7_0_100M_0' (0#1) [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/.Xil/Vivado-20460-LAPTOP-MPD8ATBV/realtime/image_block_rst_ps7_0_100M_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'image_block_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:621]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'image_block_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:621]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'image_block_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:621]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'image_block_rst_ps7_0_100M_0' is unconnected for instance 'rst_ps7_0_100M' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:621]
+WARNING: [Synth 8-7023] instance 'rst_ps7_0_100M' of module 'image_block_rst_ps7_0_100M_0' has 10 connections declared, but only 6 given [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/synth/image_block.v:621]
 INFO: [Synth 8-6157] synthesizing module 'image_block_xlconst_pat2_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_xlconst_pat2_0/synth/image_block_xlconst_pat2_0.v:53]
 INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_10_xlconstant' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ipshared/a165/hdl/xlconstant_v1_1_vl_rfs.v:68]
 INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_10_xlconstant' (0#1) [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ipshared/a165/hdl/xlconstant_v1_1_vl_rfs.v:68]
@@ -122,18 +126,18 @@ WARNING: [Synth 8-7129] Port M_ARESETN in module s00_couplers_imp_VHS1OY is eith
 WARNING: [Synth 8-7129] Port ACLK in module image_block_axi_mem_intercon_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port ARESETN in module image_block_axi_mem_intercon_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1520.695 ; gain = 669.375
+Finished RTL Elaboration : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1521.535 ; gain = 671.004
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1520.695 ; gain = 669.375
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1521.535 ; gain = 671.004
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1520.695 ; gain = 669.375
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1521.535 ; gain = 671.004
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 1520.695 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 1521.535 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -162,35 +166,39 @@ Parsing XDC File [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.
 Finished Parsing XDC File [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axis_gamma_0_0/image_block_axis_gamma_0_0/image_block_axis_gamma_0_0_in_context.xdc] for cell 'image_block_i/axis_gamma_0'
 Parsing XDC File [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_conv_b_0/image_block_conv_b_0/image_block_conv_b_0_in_context.xdc] for cell 'image_block_i/conv_b'
 Finished Parsing XDC File [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_conv_b_0/image_block_conv_b_0/image_block_conv_b_0_in_context.xdc] for cell 'image_block_i/conv_b'
+Parsing XDC File [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axis_gaussian_0_0/image_block_axis_gaussian_0_0/image_block_axis_gaussian_0_0_in_context.xdc] for cell 'image_block_i/axis_gaussian_0'
+Finished Parsing XDC File [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axis_gaussian_0_0/image_block_axis_gaussian_0_0/image_block_axis_gaussian_0_0_in_context.xdc] for cell 'image_block_i/axis_gaussian_0'
+Parsing XDC File [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axis_wb_0_0/image_block_axis_wb_0_0/image_block_axis_wb_0_0_in_context.xdc] for cell 'image_block_i/axis_wb_0'
+Finished Parsing XDC File [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axis_wb_0_0/image_block_axis_wb_0_0/image_block_axis_wb_0_0_in_context.xdc] for cell 'image_block_i/axis_wb_0'
 Parsing XDC File [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1520.695 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1521.535 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 1520.695 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 1521.535 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1520.695 ; gain = 669.375
+Finished Constraint Validation : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 1521.535 ; gain = 671.004
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1520.695 ; gain = 669.375
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:30 ; elapsed = 00:00:34 . Memory (MB): peak = 1521.535 ; gain = 671.004
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 1520.695 ; gain = 669.375
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 1521.535 ; gain = 671.004
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 1520.695 ; gain = 669.375
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:30 ; elapsed = 00:00:35 . Memory (MB): peak = 1521.535 ; gain = 671.004
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -216,25 +224,25 @@ WARNING: [Synth 8-7129] Port ARESETN in module image_block_axi_mem_intercon_0 is
 WARNING: [Synth 8-7129] Port M00_ACLK in module image_block_axi_mem_intercon_0 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port M00_ARESETN in module image_block_axi_mem_intercon_0 is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 1522.164 ; gain = 670.844
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:33 ; elapsed = 00:00:39 . Memory (MB): peak = 1525.789 ; gain = 675.258
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:44 . Memory (MB): peak = 1698.414 ; gain = 847.094
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:44 ; elapsed = 00:00:51 . Memory (MB): peak = 1700.879 ; gain = 850.348
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:44 . Memory (MB): peak = 1698.977 ; gain = 847.656
+Finished Timing Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:00:51 . Memory (MB): peak = 1701.363 ; gain = 850.832
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:44 . Memory (MB): peak = 1709.098 ; gain = 857.777
+Finished Technology Mapping : Time (s): cpu = 00:00:44 ; elapsed = 00:00:51 . Memory (MB): peak = 1711.500 ; gain = 860.969
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -252,37 +260,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:44 ; elapsed = 00:00:51 . Memory (MB): peak = 1957.875 ; gain = 1106.555
+Finished IO Insertion : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 1960.582 ; gain = 1110.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:44 ; elapsed = 00:00:51 . Memory (MB): peak = 1957.875 ; gain = 1106.555
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 1960.582 ; gain = 1110.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:44 ; elapsed = 00:00:51 . Memory (MB): peak = 1957.875 ; gain = 1106.555
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 1960.582 ; gain = 1110.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:44 ; elapsed = 00:00:51 . Memory (MB): peak = 1957.875 ; gain = 1106.555
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 1960.582 ; gain = 1110.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:44 ; elapsed = 00:00:51 . Memory (MB): peak = 1957.875 ; gain = 1106.555
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 1960.582 ; gain = 1110.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:44 ; elapsed = 00:00:51 . Memory (MB): peak = 1957.875 ; gain = 1106.555
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 1960.582 ; gain = 1110.051
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -298,12 +306,14 @@ Report BlackBoxes:
 |4     |image_block_axil_regfile_0_0               |         1|
 |5     |image_block_axis_demosaic_0_0              |         1|
 |6     |image_block_axis_gamma_0_0                 |         1|
-|7     |image_block_axis_tpg_0_0                   |         1|
-|8     |image_block_axis_tpg_B_0                   |         1|
-|9     |image_block_axis_vid_mux_0_0               |         1|
-|10    |image_block_conv_b_0                       |         1|
-|11    |image_block_processing_system7_0_0         |         1|
-|12    |image_block_rst_ps7_0_100M_0               |         1|
+|7     |image_block_axis_gaussian_0_0              |         1|
+|8     |image_block_axis_tpg_0_0                   |         1|
+|9     |image_block_axis_tpg_B_0                   |         1|
+|10    |image_block_axis_vid_mux_0_0               |         1|
+|11    |image_block_axis_wb_0_0                    |         1|
+|12    |image_block_conv_b_0                       |         1|
+|13    |image_block_processing_system7_0_0         |         1|
+|14    |image_block_rst_ps7_0_100M_0               |         1|
 +------+-------------------------------------------+----------+
 
 Report Cell Usage: 
@@ -316,32 +326,34 @@ Report Cell Usage:
 |4     |image_block_axil_regfile_0               |     1|
 |5     |image_block_axis_demosaic_0              |     1|
 |6     |image_block_axis_gamma_0                 |     1|
-|7     |image_block_axis_tpg_0                   |     1|
-|8     |image_block_axis_tpg_B                   |     1|
-|9     |image_block_axis_vid_mux_0               |     1|
-|10    |image_block_conv_b                       |     1|
-|11    |image_block_processing_system7_0         |     1|
-|12    |image_block_rst_ps7_0_100M               |     1|
+|7     |image_block_axis_gaussian_0              |     1|
+|8     |image_block_axis_tpg_0                   |     1|
+|9     |image_block_axis_tpg_B                   |     1|
+|10    |image_block_axis_vid_mux_0               |     1|
+|11    |image_block_axis_wb_0                    |     1|
+|12    |image_block_conv_b                       |     1|
+|13    |image_block_processing_system7_0         |     1|
+|14    |image_block_rst_ps7_0_100M               |     1|
 +------+-----------------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:44 ; elapsed = 00:00:51 . Memory (MB): peak = 1957.875 ; gain = 1106.555
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 1960.582 ; gain = 1110.051
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:46 . Memory (MB): peak = 1957.875 ; gain = 1106.555
-Synthesis Optimization Complete : Time (s): cpu = 00:00:44 ; elapsed = 00:00:51 . Memory (MB): peak = 1957.875 ; gain = 1106.555
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:32 ; elapsed = 00:00:53 . Memory (MB): peak = 1960.582 ; gain = 1110.051
+Synthesis Optimization Complete : Time (s): cpu = 00:00:51 ; elapsed = 00:00:58 . Memory (MB): peak = 1960.582 ; gain = 1110.051
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 1957.875 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1960.582 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1970.613 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1973.379 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 1617b81a
+Synth Design complete | Checksum: 4eb2bea3
 INFO: [Common 17-83] Releasing license: Synthesis
-62 Infos, 36 Warnings, 0 Critical Warnings and 0 Errors encountered.
+66 Infos, 36 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:52 ; elapsed = 00:01:07 . Memory (MB): peak = 1974.629 ; gain = 1355.344
+synth_design: Time (s): cpu = 00:01:01 ; elapsed = 00:01:21 . Memory (MB): peak = 1977.344 ; gain = 1356.426
 INFO: [Common 17-1381] The checkpoint 'C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/synth_1/image_block_wrapper.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file image_block_wrapper_utilization_synth.rpt -pb image_block_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Jul 25 23:14:40 2026...
+INFO: [Common 17-206] Exiting Vivado at Sun Jul 26 20:49:26 2026...
