@@ -8,11 +8,11 @@
     "gen_directory": "../../../../../../BARN AI.gen/sources_1/bd/image_block/ip/image_block_axis_gamma_0_0",
     "parameters": {
       "component_parameters": {
-        "LUT_FILE": [ { "value": "C:/Users/user/Desktop/project/FPGA_practice/rtl/gamma_lut.mem", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
+        "LUT_FILE": [ { "value": "C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/rtl/gamma_lut.mem", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
         "Component_Name": [ { "value": "image_block_axis_gamma_0_0", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
-        "LUT_FILE": [ { "value": "C:/Users/user/Desktop/project/FPGA_practice/rtl/gamma_lut.mem", "resolve_type": "generated", "usage": "all" } ]
+        "LUT_FILE": [ { "value": "C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/rtl/gamma_lut.mem", "resolve_type": "generated", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq", "resolve_type": "generated", "usage": "all" } ],
@@ -141,5 +141,5 @@
       }
     }
   },
-  "checksum": "2582b159"
+  "checksum": "eb1e45c4"
 }

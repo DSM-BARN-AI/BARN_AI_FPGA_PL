@@ -1,0 +1,141 @@
+# 03. 커스텀 레지스터 파일 (`axil_regfile`) 스펙
+
+- 작성일: 2026-07-17
+- 구현: 손서원 (RTL 직접 작성)
+- 검증 인프라: 제공됨 (`sim/tb_axil_regfile.v` — 자가체크 TB, 골든모델 불필요)
+
+---
+
+## 1. 목적
+
+AXI4-Lite **슬레이브** 레지스터 파일. PS(CPU)가 PL 파이프라인을 런타임 제어하는 관문.
+
+- 2단계 BD의 `xlconstant`(enable/pattern_sel 하드코딩)를 대체 → PS가 소프트웨어로 TPG 제어.
+- 이후 모든 커스텀 블록(감마 계수, WB 게인, 먹스 선택, 상태 리드백)의 제어 인터페이스 원형.
+- AXI4-Lite 5채널 핸드셰이크(AW/W/B/AR/R)를 익히는 블록 — AXIS(2채널)에서 배운 valid/ready 계약의 확장판.
+
+## 2. 블록 위치
+
+```
+PS M_AXI_GP0 ──> (SmartConnect) ──> [axil_regfile] ──enable/pattern_sel──> axis_tpg
+                                          └─status_in←─ (프레임 카운터 등, 추후)
+```
+
+단일 클럭 도메인 (FCLK_CLK0 100MHz). BD 통합은 2단계 하드웨어 검증 후 진행.
+
+## 3. 파라미터 / 포트
+
+| 파라미터 | 기본값 | 설명 |
+|---|---|---|
+| `ADDR_WIDTH` | 8 | 바이트 주소 폭 (64워드 여유) |
+
+| 포트 | 방향 | 폭 | 설명 |
+|---|---|---|---|
+| `aclk`, `aresetn` | in | 1 | 클럭 / 동기 리셋 active-low (TPG와 동일 스타일) |
+| `s_axil_awaddr/awvalid/awready` | in/in/out | 8/1/1 | 쓰기 주소 채널 |
+| `s_axil_wdata/wstrb/wvalid/wready` | in×3/out | 32/4/1/1 | 쓰기 데이터 채널 (**WSTRB 바이트 인에이블!**) |
+| `s_axil_bresp/bvalid/bready` | out/out/in | 2/1/1 | 쓰기 응답 채널 |
+| `s_axil_araddr/arvalid/arready` | in/in/out | 8/1/1 | 읽기 주소 채널 |
+| `s_axil_rdata/rresp/rvalid/rready` | out×3/in | 32/2/1/1 | 읽기 데이터 채널 |
+| `tpg_enable` | out | 1 | = CTRL[0] (R10) |
+| `pattern_sel` | out | 2 | = TPG_CFG[1:0] (R10) |
+| `status_in` | in | 32 | STATUS로 리드백되는 외부 상태 (TB가 구동; 통합 시 프레임카운터 등) |
+
+접근은 **32비트 워드 정렬 가정** (`addr[1:0]` 무시). 워드 인덱스 = `addr[7:2]`.
+
+## 4. 레지스터 맵
+
+| 오프셋 | 이름 | 접근 | 리셋값 | 내용 |
+|---|---|---|---|---|
+| `0x00` | `ID` | RO | `0xBA51_0301` | 매직/버전 ("BARN AI 스텝03 v01"). 첫 sanity read용 |
+| `0x04` | `SCRATCH` | RW | `0x0000_0000` | 부작용 없는 테스트 레지스터 (32비트 전체 RW) |
+| `0x08` | `CTRL` | RW | `0x0000_0000` | bit0 = `tpg_enable`, **bit1 = `mux_sel` (v2, 2026-07-20)**. 나머지 RAZ/WI |
+| `0x0C` | `TPG_CFG` | RW | `0x0000_0000` | bit[1:0] = `pattern_sel`. 나머지 RAZ/WI |
+| `0x10` | `STATUS` | RO | — | `status_in[31:0]` 패스스루 |
+| 그 외 | (unmapped) | — | — | 읽기: `0xDEAD_BEEF` + **SLVERR**. 쓰기: 무시 + **SLVERR** |
+
+- **RAZ/WI** = Read-As-Zero / Write-Ignored (reserved 비트는 항상 0으로 읽히고 써도 저장 안 됨).
+- 응답 코드: `OKAY=2'b00`, `SLVERR=2'b10`.
+- **RO에 쓰기**: 주소는 존재하므로 응답 **OKAY**, 값은 불변 (unmapped와 구별!).
+- **WSTRB 의미**: 바이트 k는 `wstrb[k]=1`일 때만 갱신. 필드가 속한 바이트의 strb가 0이면 그 필드 불변 (예: CTRL에 `wstrb=4'b1110`으로 쓰면 bit0은 byte0 소속이라 안 바뀜).
+
+## 5. 프로토콜 규칙 (R1~R10) — 리뷰 기준
+
+| # | 규칙 | 왜 중요한가 |
+|---|---|---|
+| **R1** | 5채널 모두 valid/ready 계약: 슬레이브가 올리는 VALID(B, R)는 상대 READY까지 유지, 그동안 페이로드(BRESP/RDATA/RRESP) 불변 | AXIS의 R1과 동일 계약. 어기면 CPU가 쓰레기 값을 읽음 |
+| **R2** | 마스터는 AW와 W를 **아무 순서로나** (동시 포함) 보낼 수 있고, 슬레이브는 어느 순서든 완료해야 함. "두 VALID를 다 보고 두 READY를 같이 올리는" 방식은 합법. **금지: READY끼리 조합 순환 의존** | W-먼저 마스터에서 데드락 = AXIL 슬레이브 버그 1위. TB가 세 순서 모두 테스트 |
+| **R3** | 쓰기는 AW+W 쌍당 **정확히 1회** 커밋, WSTRB 바이트 단위 적용 | 이중 커밋 = 레지스터 깨짐. WSTRB 무시 = 부분 쓰기 시 데이터 파손 |
+| **R4** | B 응답은 쓰기당 정확히 1개, AW·W **둘 다 억셉트된 후에만**. mapped=OKAY, unmapped=SLVERR | 응답 개수 어긋나면 CPU 버스 행 또는 유령 응답 |
+| **R5** | AR당 R 비트 정확히 1개. RDATA는 응답 생성 시점의 레지스터 값. unmapped 읽기 = `0xDEAD_BEEF`+SLVERR | |
+| **R6** | RO 쓰기는 무시(응답 OKAY, 상태 불변). reserved 비트 RAZ/WI | 디버깅 시 "썼는데 왜 안 바뀌지"의 명세화 |
+| **R7** | 리셋: RW 레지스터 초기값, BVALID/RVALID = 0 | |
+| **R8** | BVALID는 BREADY에, RVALID는 RREADY에 **조합 의존 금지**. 출력 레지스터드 권장 | AXIS 때 배운 "시작조건 순환=데드락"의 AXIL 버전 |
+| **R9** | 읽기/쓰기 채널은 독립 — 한쪽이 스톨(예: RREADY=0 유지)해도 다른 쪽 진행 | CPU와 DMA가 섞일 때 실전 이슈. TB가 직접 테스트 |
+| **R10** | `tpg_enable`/`pattern_sel` 출력은 레지스터 상태를 상시 반영 | 제어 신호가 실제 하드웨어에 닿는 목적 그 자체 |
+
+## 6. 구현 힌트
+
+1. **쓰기 채널 구조**: AW와 W를 **독립적으로** 억셉트해 래치하고(`aw_got`/`w_got` 플래그 + 주소/데이터 홀딩 레지스터), **둘 다 모인 사이클에** 커밋 → BVALID 상승. 커밋 후 플래그 클리어.
+   - 대안(합법): 두 VALID가 다 보일 때까지 기다렸다가 AWREADY/WREADY를 같은 사이클에 올리고 그 자리에서 커밋. 플래그가 필요 없어 더 단순. 단, READY를 **레지스터로** 만들 것 (R8 정신).
+2. **B 채널**: `bvalid`가 이미 1인데 이전 응답이 아직 안 나갔으면(`!bready`) 새 커밋을 **받지 말 것** — AWREADY/WREADY를 그동안 낮춰서 자연스럽게 백프레셔.
+3. **읽기 채널**: AR 억셉트(주소 래치) → 다음 사이클 `rdata` 먹스 + `rvalid<=1` → RREADY까지 유지. AXIS TPG의 `(!tvalid||tready)` 템플릿이 R채널에도 그대로 적용됨: `(!rvalid || rready)`일 때만 새 응답 로드.
+4. **디코드**: `case (addr[7:2])` 워드 인덱스로. unmapped는 default 케이스에서 SLVERR 플래그.
+5. **WSTRB**: 커밋 시 `for` 대신 4개 바이트를 명시적으로 — `if (wstrb_hold[0]) reg[7:0] <= wdata_hold[7:0];` 식. CTRL/TPG_CFG는 마스크(`&32'h1`, `&32'h3`)를 저장 시 적용하면 리드백이 자동으로 RAZ.
+6. **출력 배선**: `assign tpg_enable = ctrl_reg[0];` — 골격에 이미 제공.
+
+## 7. 자가 체크리스트 (제출 전 셀프 리뷰)
+
+- [ ] W가 AW보다 먼저 와도 데드락 없이 완료되는가? (R2)
+- [ ] BVALID가 1인 채 BREADY를 기다리는 동안 BRESP가 안 변하는가? (R1)
+- [ ] 같은 쓰기에 B 응답이 두 번 나가지 않는가? (R4)
+- [ ] `wstrb=4'b0000` 쓰기 → 아무 레지스터도 안 변하고 OKAY 응답인가? (R3/R6)
+- [ ] RREADY=0으로 읽기를 세워둔 채 쓰기가 완료되는가? (R9)
+- [ ] 리셋 직후 ID 읽기가 매직값인가? (R7 + sanity)
+
+## 8. 완료 기준 (DoD)
+
+1. `xvlog`/`xelab` 워닝 확인 (치명 워닝 0)
+2. `tb_axil_regfile` **TB PASS** — 기본 시드 + `+seed=7` + `+n_ops=1000` 세 가지 모두
+3. (선택) Vivado OOC 합성 통과
+
+## 9. 실행 방법
+
+```powershell
+# PowerShell, sim/ 폴더에서
+$env:PATH = "C:\AMDDesignTools\2025.2\Vivado\bin;" + $env:PATH
+xvlog ..\rtl\axil_regfile.v tb_axil_regfile.v
+xelab tb_axil_regfile -s regfile_sim
+xsim regfile_sim -R
+# 추가 시드/스트레스 (plusarg는 '"..."'로 감쌀 것 — PowerShell 인자 쪼개짐 주의)
+xsim regfile_sim -R -testplusarg '"seed=7"' -testplusarg '"n_ops=1000"'
+```
+
+파형: `xsim regfile_sim -gui` (VCD는 `tb_axil_regfile.vcd`로도 덤프됨).
+
+## 10. 리뷰 요청 방법
+
+`rtl/axil_regfile.v` 저장 후 "리뷰해줘". TB FAIL 시 로그의 `R# FAIL` / `TIMEOUT` 줄과 함께.
+피드백은 R번호 기준 (예: "R2 위반 — 힌트 6.1 참고").
+
+## 11. BD 통합 기록 (2026-07-19)
+
+- 구현 완료: 회귀 3종 PASS (기본 / `+seed=7` / `+seed=7 +n_ops=1000`). 유령 R 비트(R5)
+  버그 1건 수정 — 읽기 채널을 "억셉트 결정 / 핸드셰이크 에지 소비" 2단계로 재구성.
+- BD 통합: `BARN_AI_FPGA_PL/scripts/add_regfile_bd.tcl` (배치 실행 완료, validate 통과)
+  - `xlconstant_0/1` 삭제 → `axil_regfile_0.tpg_enable/pattern_sel`이 TPG 제어 인계
+  - PS GP0 → `axi_smc`(NUM_MI=2) M01 → `s_axil`
+  - **베이스 주소 `0x43C0_0000` / 4K** (VDMA lite는 `0x4300_0000` / 64K)
+  - BD 인스턴스는 `ADDR_WIDTH=12` (4K 주소블록 확보용. 디코드는 `addr[7:2]` 그대로라
+    256B 주기 앨리어싱 — 단순 레지스터 IP의 표준 관례)
+  - `status_in`은 xlconstant 0 고정 (추후 프레임카운터)
+- 소프트웨어: `sw/vdma_capture/main.c`에 regfile 시퀀스 추가 —
+  ID 검증(0xBA510301) → SCRATCH 라이트백 → STATUS 확인 → `TPG_CFG=0` → `CTRL=1`.
+  **주의: 이제 CTRL을 안 쓰면 TPG가 프레임을 안 만든다** (xlconstant 시절과 다름).
+  TPG를 VDMA보다 먼저 켜도 안전한 이유: tready=0 동안 R1이 (0,0)+SOF를 홀드.
+- 하드웨어 실행 시 기대 UART 추가 줄:
+  ```
+  regfile ID      = 0xba510301 (expect 0xba510301)
+  scratch readback= 0xa55a1234 (expect 0xa55a1234)
+  status          = 0x00000000 (expect 0 for now)
+  ```

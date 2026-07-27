@@ -740,7 +740,7 @@
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="string">
         <spirit:name>LUT_FILE</spirit:name>
         <spirit:displayName>Lut File</spirit:displayName>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.LUT_FILE">C:/Users/user/Desktop/project/FPGA_practice/rtl/gamma_lut.mem</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.LUT_FILE">C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/rtl/gamma_lut.mem</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -810,7 +810,7 @@
     <spirit:parameter>
       <spirit:name>LUT_FILE</spirit:name>
       <spirit:displayName>Lut File</spirit:displayName>
-      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LUT_FILE">C:/Users/user/Desktop/project/FPGA_practice/rtl/gamma_lut.mem</spirit:value>
+      <spirit:value spirit:resolve="user" spirit:id="PARAM_VALUE.LUT_FILE">C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/rtl/gamma_lut.mem</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>

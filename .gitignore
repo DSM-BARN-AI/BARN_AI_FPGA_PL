@@ -1,21 +1,40 @@
-# Ignore build output directory
+# ===== Vitis / IDE =====
 /build
 /export
-
-# Ignore object files and dependent files
 .o
 .d
-
-#Ignore logs folder and log files
 /logs
 .log
-
-#Ignore lock files
 .lock
-
 .bin
 .pdi
 .vitisWorkspace.json
-
 _ide/logs
 _ide/.wsdata
+
+# ===== XSim 시뮬레이션 산출물 (sim/의 소스만 추적) =====
+sim/xsim.dir/
+sim/.Xil/
+sim/*.vcd
+sim/*.wdb
+sim/*.pb
+sim/*.jou
+sim/*.log
+sim/*.str
+sim/webtalk*
+sim/xelab.*
+sim/xvlog.*
+sim/xsim.*
+# 골든/덤프 hex (model/*.py가 생성) — 단 gamma_lut.mem은 소스라 추적
+sim/*.hex
+
+# ===== Vivado 재생성 가능 산출물 =====
+# 주의: 현재 .cache/.gen이 이미 추적 중이라 즉시 반영되진 않음
+#       (정리하려면 git rm -r --cached 필요 — 별도 결정)
+BARN_AI/*.cache/
+BARN_AI/*.hw/
+BARN_AI/*.ip_user_files/
+BARN_AI/*.sim/
+BARN_AI/*.runs/
+BARN_AI/.Xil/
+scripts/*.log

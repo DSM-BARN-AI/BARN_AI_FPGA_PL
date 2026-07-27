@@ -2839,7 +2839,7 @@
         "has_run_ip_tcl": "true",
         "parameters": {
           "LUT_FILE": {
-            "value": "C:/Users/user/Desktop/project/FPGA_practice/rtl/gamma_lut.mem"
+            "value": "C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/rtl/gamma_lut.mem"
           }
         },
         "reference_info": {
