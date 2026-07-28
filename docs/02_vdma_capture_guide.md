@@ -124,6 +124,36 @@ DDR 0x0200_0000 : 버퍼0   ┐ stride=256B × 48줄 = 12KB/프레임
 | buffer FAIL + 값은 있는데 어긋남 | 캐시 invalidate 누락(main.c엔 있음), stride 불일치, 또는 바이트순서(§7) |
 | 픽셀이 한두 개씩 밀림 | R1/R2 위반 의심 — 근데 우리 TPG는 랜덤 백프레셔 검증 완료라, VDMA 설정 쪽부터 볼 것 |
 
+## 9.5 하드웨어 검증 기록 (2026-07-28) — ✅ DoD 완료
+
+Zybo Z7-20 실기 실행, `MUX_SEL=0` (TPG-A → mux → gamma → VDMA):
+
+```
+regfile ID      = 0xBA510301 (expect 0xBA510301)   ← AXI-Lite 실칩 동작
+scratch readback= 0xA55A1234                        ← 레지스터 왕복
+mux path        = 0 (TPG-A->gamma(bars))
+VDMASR after run = 0x00015810
+buffer 0/1/2: OK (0 mismatches)
+```
+→ `uart_to_hex.py` + `tpg_golden.py --compare` = **COMPARE PASS (2회 독립 실행 모두)**
+
+2·3·5단계 DoD 동시 충족. 시뮬에서만 검증됐던 R1~R10 계약이 실리콘에서 성립함을 확인.
+
+### 이번 bring-up에서 겪은 함정 3가지 (재발 방지)
+
+| 증상 | 원인 | 조치 |
+|---|---|---|
+| 배너만 찍히고 즉시 정지 | Vitis 앱의 `_ide/bitstream/*.bit` **사본이 스테일**(옛 2단계 비트) → `0x43C00000`에 응답 슬레이브 없음 → **AXI 읽기 미완료로 CPU 무한대기**. Zynq 비트스트림은 크기가 같아 육안 구분 불가 | `impl_1/*.bit`를 앱 `_ide/bitstream/`에 덮어쓰기 (해시로 검증) |
+| 읽을 수 없는 바이트 출력 | Tera Term 재실행 시 보율이 **기본 9600으로 리셋**. 디코딩된 바이트 수 ÷ 실제 송신 바이트 수 ≈ 12 = 115200/9600 이 결정적 단서 | 115200 재설정 + **Setup → Save setup**으로 INI 저장 |
+| "debug session is running" | 이전 세션 미종료 | Vitis 정지(■) 후 재실행 |
+
+### VDMASR 플래그 해석
+`0x00015810` = bit4(DMAIntErr) + bit11(SOFLateErr) + bit12(EOLLateErr) + bit14 + bit16.
+**데이터는 완전 일치**했으므로 기동 과도현상으로 판단 — `VDMACR`에 RS=1을 쓴 뒤 VSIZE로 기동하기
+전까지 VDMA가 "크기를 모른 채 도는" 구간에서 SOF/EOL을 예상 밖 타이밍에 보고 sticky 플래그를
+래치. 이후 동기화됨. (개선: VSIZE 기동 직후 VDMASR을 W1C로 클리어 후 재읽기 → 기동 잔재와
+진행 중 에러 구분)
+
 ## 10. 리뷰 요청 방법
 
 BD에서 막히면 Tcl Console에 `write_bd_tcl -force bd_dump.tcl` 실행 → 그 파일 경로를 알려주면 블록 연결·설정을 그대로 리뷰 가능. validate 에러는 에러 텍스트 전체를 붙여넣기.

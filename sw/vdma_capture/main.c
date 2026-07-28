@@ -55,9 +55,10 @@
  *  0 = TPG-A -> mux(s0) -> gamma  (color bars; bars are gamma-invariant
  *      since every channel is 0x00/0xFF, so the built-in bars check stays
  *      valid even with gamma in the path)
- *  1 = TPG-B(bayer) -> demosaic -> mux(s1) -> gamma  (interpolated RGB;
- *      built-in check skipped, verify on PC with the chain golden)          */
-#define MUX_SEL       0
+ *  1 = TPG-B(bayer) -> demosaic -> gaussian -> wb -> mux(s1) -> gamma
+ *      (full custom ISP; built-in check skipped, verify on PC with
+ *       model/isp_chain_golden.py)                                          */
+#define MUX_SEL       1
 
 /* golden: pattern 0 (color bars), same table as model/tpg_golden.py */
 static const u32 BARS[8] = {
@@ -168,8 +169,8 @@ int main(void)
 #else
     /* 5) sel=1: demosaic output is interpolated (not bars) -> PC golden only */
     (void)b; (void)xp; (void)yp; (void)bad;
-    xil_printf("mux_sel=1: demosaic path - built-in bars check skipped.\r\n");
-    xil_printf("verify on PC: demosaic_golden(bars,RGGB) -> gamma_golden --apply\r\n");
+    xil_printf("mux_sel=1: full ISP path - built-in bars check skipped.\r\n");
+    xil_printf("verify on PC: model/isp_chain_golden.py --compare frame.hex\r\n");
 #endif
 
 #if DUMP_FRAME

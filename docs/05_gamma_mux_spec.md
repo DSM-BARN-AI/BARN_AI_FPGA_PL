@@ -158,4 +158,30 @@ TPG 직결(s0) vs 디모자이크 경로(s1)를 **프레임 단위로** 전환. 
   (`demosaic_golden --img bars --exp` → `gamma_golden --apply`)
 - ⚠️ 5단계 XSA는 SW가 `CTRL=0x1`(enable) 안 쓰면 TPG 정지 → 캡처 0
 
-**보드 도착 시 남은 것**: `MUX_SEL=0/1` 각각 Vitis 빌드→실행→UART 덤프→PC 골든 비교 (DoD F.4).
+## H. 하드웨어 검증 완료 (2026-07-28) — ✅ 두 경로 모두 PASS
+
+Zybo Z7-20 실기, 8단계 ISP 비트스트림 (WNS +0.715ns).
+
+| 경로 | 하드웨어 파이프라인 | 판정 |
+|---|---|---|
+| `MUX_SEL=0` | TPG-A → mux(s0) → gamma → VDMA | **COMPARE PASS** (`tpg_golden --pattern 0`, 2회 독립 실행) |
+| `MUX_SEL=1` | TPG-B(2'b10) → conv24→8 → demosaic → gaussian → WB → mux(s1) → gamma → VDMA | **COMPARE PASS** (`isp_chain_golden.py`) |
+
+공통 확인: `regfile ID=0xBA510301`, `scratch=0xA55A1234` 왕복, `CTRL[0]`로 TPG 기동,
+`CTRL[1]`로 경로 전환 — 소프트웨어 제어가 실칩에서 동작.
+
+### 체인 골든 (`model/isp_chain_golden.py`)
+각 블록의 **검증된 골든 함수를 import해서 조합** — 알고리즘당 진실은 하나만 존재.
+`--stage demosaic|gaussian|wb|gamma`로 체인을 중간에 끊어 비교하면 불일치 블록을 국소화 가능.
+
+**WB 정상상태 처리**: TPG가 매 프레임 동일 영상을 주므로 누적값이 불변 → 프레임 2 이후
+게인이 `gain(A)`로 고정. 캡처는 20ms(≈650프레임) 뒤라 정상상태.
+실측 게인 **gR=260 / gG=256 / gB=252** (unity=256) — 컬러바 평균이 거의 중성이라는 물리와 일치.
+흰 픽셀 검산: `ffffff` →(WB) `fffffb` →(gamma) `fffffd` ✓
+
+### 의미
+시뮬레이션에서만 통과했던 5개 커스텀 블록이 **직렬 연결 상태로 실리콘에서 비트일치**.
+개별 블록 검증(각자 TB+골든)과 통합 검증(체인 골든)이 모두 닫혔으므로,
+**RGB 전처리 파이프라인은 실카메라 입력만 남기고 완결**.
+
+**보드 도착 시 남은 것**: ~~`MUX_SEL=0/1` 각각 실행~~ → **완료**. 다음은 6단계 Pcam 실입력.
