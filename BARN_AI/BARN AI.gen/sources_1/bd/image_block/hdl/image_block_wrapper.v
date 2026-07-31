@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-//Date        : Sun Jul 26 20:36:11 2026
+//Date        : Wed Jul 29 21:50:03 2026
 //Host        : LAPTOP-MPD8ATBV running 64-bit major release  (build 9200)
 //Command     : generate_target image_block_wrapper.bd
 //Design      : image_block_wrapper
@@ -31,7 +31,9 @@ module image_block_wrapper
     FIXED_IO_mio,
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
-    FIXED_IO_ps_srstb);
+    FIXED_IO_ps_srstb,
+    pms_rx,
+    ze03_rx);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -53,6 +55,8 @@ module image_block_wrapper
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
+  input pms_rx;
+  input ze03_rx;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -75,6 +79,8 @@ module image_block_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
+  wire pms_rx;
+  wire ze03_rx;
 
   image_block image_block_i
        (.DDR_addr(DDR_addr),
@@ -97,5 +103,7 @@ module image_block_wrapper
         .FIXED_IO_mio(FIXED_IO_mio),
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
-        .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb));
+        .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
+        .pms_rx(pms_rx),
+        .ze03_rx(ze03_rx));
 endmodule

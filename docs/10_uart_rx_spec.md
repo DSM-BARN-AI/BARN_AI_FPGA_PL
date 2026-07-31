@@ -104,3 +104,46 @@ rx ─2FF─> rx_sync ─┬─> 하강 에지 검출 (start)
 8N1(패리티 없음), 16× 오버샘플, 중앙 샘플, LSB first, 2FF 동기화.
 센서(ZE03/PMS7003) 둘 다 9600 8N1이라 단일 코어로 2 인스턴스. 프레임 파싱은 상위 블록.
 바꿀 항목 있으면 RTL 착수 전에.
+
+## 10. 실행 방법 (확정)
+
+```powershell
+# sim/ 폴더
+$env:PATH = "C:\AMDDesignTools\2025.2\Vivado\bin;" + $env:PATH
+xvlog ..\rtl\uart_rx.v tb_uart_rx.v
+xelab tb_uart_rx -s u_sim                                  # BAUD=625k (빠른 시뮬)
+xelab tb_uart_rx -s u_sim9600 -generic_top '"BAUD=9600"'   # 실제 센서 설정
+xsim u_sim -R                                              # 전 시나리오 T1~T7
+xsim u_sim -R -testplusarg '"seed=7"'
+xsim u_sim9600 -R -testplusarg '"quick=1"'                 # 반복 축약 (10416클럭/비트)
+```
+
+**시뮬 보율 선택 근거**: `BAUD=625000` → `OSVW_TICKS = 100e6/(625e3×16) = 10` 으로 **나눗셈이
+정확히 떨어져** 분주 오차 없이 로직만 검증할 수 있다. 실제 9600은 `OSVW=651`(비트당 10416클럭)
+이라 시뮬이 1000배 길어지므로 `+quick=1`로 반복을 줄여 별도 확인.
+
+### 검증 기록 (2026-07-28, XSim 2025.2) — DoD 4/4 PASS
+
+| 실행 | 조건 | 결과 |
+|---|---|---|
+| 1 | BAUD=625k, 기본 시드 | **TB PASS** 264바이트, frame_err 4 |
+| 2 | BAUD=625k, seed=7 | **TB PASS** 264바이트 |
+| 3 | BAUD=625k, seed=99 | **TB PASS** 264바이트 |
+| 4 | **BAUD=9600 (OSVW=651)**, quick | **TB PASS** 31바이트 — 실제 센서 설정 |
+
+시나리오(모든 런 공통): T1 랜덤+랜덤갭 / T2 **백투백(갭 0)** / T3 **보율 +2%** /
+T4 **보율 −2%** / T5 프레이밍 에러 주입 → **R4 검출·바이트 억제** / T6 **시작 글리치 → 전부 무시**
+/ T7 글리치 후 복구.
+
+**첫 시도 무버그** (선언 순서 오류 1건 외). demosaic·gaussian처럼 구조가 명확한 FSM이라
+사이클 트레이스 디버깅이 필요 없었음.
+
+## 11. 다음 블록
+
+`uart_rx` 위에 얹을 것:
+1. **프레임 파서** — ZE03(9바이트: `0xFF` 헤더 + 농도 + 체크섬), PMS7003(32바이트: `0x42 0x4D`
+   헤더 + 길이 + 13워드 + 16비트 체크섬). 헤더 동기 → 길이만큼 수집 → **체크섬 검증** →
+   유효 프레임만 통과.
+2. **AXI-Lite 노출** — 파싱된 값 + 프레임 카운터 + 에러 카운터(frame_err/checksum_err)를
+   레지스터로. `axil_regfile` 패턴 재사용.
+3. BD 통합 시 인스턴스 2개(센서별 BAUD 동일 9600) + PS I2C0 활성화.

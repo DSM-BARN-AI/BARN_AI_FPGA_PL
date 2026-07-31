@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-//Date        : Sun Jul 26 20:36:11 2026
+//Date        : Wed Jul 29 21:50:03 2026
 //Host        : LAPTOP-MPD8ATBV running 64-bit major release  (build 9200)
 //Command     : generate_target image_block.bd
 //Design      : image_block
@@ -10,7 +10,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "image_block,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=image_block,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=18,numReposBlks=16,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=8,numPkgbdBlks=0,bdsource=USER,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "image_block.hwdef" *) 
+(* CORE_GENERATION_INFO = "image_block,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=image_block,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=23,numReposBlks=21,numNonXlnxBlks=0,numHierBlks=2,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=13,numPkgbdBlks=0,bdsource=USER,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "image_block.hwdef" *) 
 module image_block
    (DDR_addr,
     DDR_ba,
@@ -32,7 +32,9 @@ module image_block
     FIXED_IO_mio,
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
-    FIXED_IO_ps_srstb);
+    FIXED_IO_ps_srstb,
+    pms_rx,
+    ze03_rx);
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR ADDR" *) (* X_INTERFACE_MODE = "Master" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250" *) inout [14:0]DDR_addr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR BA" *) inout [2:0]DDR_ba;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR CAS_N" *) inout DDR_cas_n;
@@ -54,6 +56,8 @@ module image_block
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_CLK" *) inout FIXED_IO_ps_clk;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB" *) inout FIXED_IO_ps_porb;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB" *) inout FIXED_IO_ps_srstb;
+  input pms_rx;
+  input ze03_rx;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -127,6 +131,23 @@ module image_block
   wire axi_smc_M01_AXI_WREADY;
   wire [3:0]axi_smc_M01_AXI_WSTRB;
   wire axi_smc_M01_AXI_WVALID;
+  wire [11:0]axi_smc_M02_AXI_ARADDR;
+  wire axi_smc_M02_AXI_ARREADY;
+  wire axi_smc_M02_AXI_ARVALID;
+  wire [11:0]axi_smc_M02_AXI_AWADDR;
+  wire axi_smc_M02_AXI_AWREADY;
+  wire axi_smc_M02_AXI_AWVALID;
+  wire axi_smc_M02_AXI_BREADY;
+  wire [1:0]axi_smc_M02_AXI_BRESP;
+  wire axi_smc_M02_AXI_BVALID;
+  wire [31:0]axi_smc_M02_AXI_RDATA;
+  wire axi_smc_M02_AXI_RREADY;
+  wire [1:0]axi_smc_M02_AXI_RRESP;
+  wire axi_smc_M02_AXI_RVALID;
+  wire [31:0]axi_smc_M02_AXI_WDATA;
+  wire axi_smc_M02_AXI_WREADY;
+  wire [3:0]axi_smc_M02_AXI_WSTRB;
+  wire axi_smc_M02_AXI_WVALID;
   wire [31:0]axi_vdma_0_M_AXI_S2MM_AWADDR;
   wire [1:0]axi_vdma_0_M_AXI_S2MM_AWBURST;
   wire [3:0]axi_vdma_0_M_AXI_S2MM_AWCACHE;
@@ -185,6 +206,7 @@ module image_block
   wire conv_b_M_AXIS_TREADY;
   wire [0:0]conv_b_M_AXIS_TUSER;
   wire conv_b_M_AXIS_TVALID;
+  wire pms_rx;
   wire processing_system7_0_FCLK_CLK0;
   wire processing_system7_0_FCLK_RESET0_N;
   wire [31:0]processing_system7_0_M_AXI_GP0_ARADDR;
@@ -226,10 +248,29 @@ module image_block
   wire [3:0]processing_system7_0_M_AXI_GP0_WSTRB;
   wire processing_system7_0_M_AXI_GP0_WVALID;
   wire [0:0]rst_ps7_0_100M_peripheral_aresetn;
+  wire u_pm_parse_csum_err;
+  wire u_pm_parse_frame_valid;
+  wire [15:0]u_pm_parse_pm10;
+  wire [15:0]u_pm_parse_pm1_0;
+  wire [15:0]u_pm_parse_pm2_5;
+  wire u_pm_uart_frame_err;
+  wire [7:0]u_pm_uart_m_data;
+  wire u_pm_uart_m_valid;
+  wire [15:0]u_ze_parse_conc;
+  wire u_ze_parse_csum_err;
+  wire [7:0]u_ze_parse_decimals;
+  wire u_ze_parse_frame_valid;
+  wire [7:0]u_ze_parse_gas_type;
+  wire [15:0]u_ze_parse_range;
+  wire [7:0]u_ze_parse_unit;
+  wire u_ze_uart_frame_err;
+  wire [7:0]u_ze_uart_m_data;
+  wire u_ze_uart_m_valid;
   wire [1:0]xlconst_pat2_dout;
   wire [31:0]xlconst_status_dout;
   wire xlconstant_0_dout;
   wire [1:0]xlconstant_1_dout;
+  wire ze03_rx;
 
   image_block_axi_mem_intercon_0 axi_mem_intercon
        (.ACLK(processing_system7_0_FCLK_CLK0),
@@ -306,6 +347,23 @@ module image_block
         .M01_AXI_wready(axi_smc_M01_AXI_WREADY),
         .M01_AXI_wstrb(axi_smc_M01_AXI_WSTRB),
         .M01_AXI_wvalid(axi_smc_M01_AXI_WVALID),
+        .M02_AXI_araddr(axi_smc_M02_AXI_ARADDR),
+        .M02_AXI_arready(axi_smc_M02_AXI_ARREADY),
+        .M02_AXI_arvalid(axi_smc_M02_AXI_ARVALID),
+        .M02_AXI_awaddr(axi_smc_M02_AXI_AWADDR),
+        .M02_AXI_awready(axi_smc_M02_AXI_AWREADY),
+        .M02_AXI_awvalid(axi_smc_M02_AXI_AWVALID),
+        .M02_AXI_bready(axi_smc_M02_AXI_BREADY),
+        .M02_AXI_bresp(axi_smc_M02_AXI_BRESP),
+        .M02_AXI_bvalid(axi_smc_M02_AXI_BVALID),
+        .M02_AXI_rdata(axi_smc_M02_AXI_RDATA),
+        .M02_AXI_rready(axi_smc_M02_AXI_RREADY),
+        .M02_AXI_rresp(axi_smc_M02_AXI_RRESP),
+        .M02_AXI_rvalid(axi_smc_M02_AXI_RVALID),
+        .M02_AXI_wdata(axi_smc_M02_AXI_WDATA),
+        .M02_AXI_wready(axi_smc_M02_AXI_WREADY),
+        .M02_AXI_wstrb(axi_smc_M02_AXI_WSTRB),
+        .M02_AXI_wvalid(axi_smc_M02_AXI_WVALID),
         .S00_AXI_araddr(processing_system7_0_M_AXI_GP0_ARADDR),
         .S00_AXI_arburst(processing_system7_0_M_AXI_GP0_ARBURST),
         .S00_AXI_arcache(processing_system7_0_M_AXI_GP0_ARCACHE),
@@ -625,6 +683,76 @@ module image_block
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_ps7_0_100M_peripheral_aresetn),
         .slowest_sync_clk(processing_system7_0_FCLK_CLK0));
+  image_block_u_pm_parse_0 u_pm_parse
+       (.aclk(processing_system7_0_FCLK_CLK0),
+        .aresetn(rst_ps7_0_100M_peripheral_aresetn),
+        .csum_err(u_pm_parse_csum_err),
+        .frame_valid(u_pm_parse_frame_valid),
+        .pm10(u_pm_parse_pm10),
+        .pm1_0(u_pm_parse_pm1_0),
+        .pm2_5(u_pm_parse_pm2_5),
+        .s_data(u_pm_uart_m_data),
+        .s_valid(u_pm_uart_m_valid));
+  image_block_u_pm_uart_0 u_pm_uart
+       (.aclk(processing_system7_0_FCLK_CLK0),
+        .aresetn(rst_ps7_0_100M_peripheral_aresetn),
+        .frame_err(u_pm_uart_frame_err),
+        .m_data(u_pm_uart_m_data),
+        .m_valid(u_pm_uart_m_valid),
+        .rx(pms_rx));
+  image_block_u_sensor_regs_0 u_sensor_regs
+       (.aclk(processing_system7_0_FCLK_CLK0),
+        .aresetn(rst_ps7_0_100M_peripheral_aresetn),
+        .pm_csum_err(u_pm_parse_csum_err),
+        .pm_frame_valid(u_pm_parse_frame_valid),
+        .pm_pm10(u_pm_parse_pm10),
+        .pm_pm1_0(u_pm_parse_pm1_0),
+        .pm_pm2_5(u_pm_parse_pm2_5),
+        .pm_uart_frame_err(u_pm_uart_frame_err),
+        .s_axil_araddr(axi_smc_M02_AXI_ARADDR),
+        .s_axil_arready(axi_smc_M02_AXI_ARREADY),
+        .s_axil_arvalid(axi_smc_M02_AXI_ARVALID),
+        .s_axil_awaddr(axi_smc_M02_AXI_AWADDR),
+        .s_axil_awready(axi_smc_M02_AXI_AWREADY),
+        .s_axil_awvalid(axi_smc_M02_AXI_AWVALID),
+        .s_axil_bready(axi_smc_M02_AXI_BREADY),
+        .s_axil_bresp(axi_smc_M02_AXI_BRESP),
+        .s_axil_bvalid(axi_smc_M02_AXI_BVALID),
+        .s_axil_rdata(axi_smc_M02_AXI_RDATA),
+        .s_axil_rready(axi_smc_M02_AXI_RREADY),
+        .s_axil_rresp(axi_smc_M02_AXI_RRESP),
+        .s_axil_rvalid(axi_smc_M02_AXI_RVALID),
+        .s_axil_wdata(axi_smc_M02_AXI_WDATA),
+        .s_axil_wready(axi_smc_M02_AXI_WREADY),
+        .s_axil_wstrb(axi_smc_M02_AXI_WSTRB),
+        .s_axil_wvalid(axi_smc_M02_AXI_WVALID),
+        .ze_conc(u_ze_parse_conc),
+        .ze_csum_err(u_ze_parse_csum_err),
+        .ze_decimals(u_ze_parse_decimals),
+        .ze_frame_valid(u_ze_parse_frame_valid),
+        .ze_gas_type(u_ze_parse_gas_type),
+        .ze_range(u_ze_parse_range),
+        .ze_uart_frame_err(u_ze_uart_frame_err),
+        .ze_unit(u_ze_parse_unit));
+  image_block_u_ze_parse_0 u_ze_parse
+       (.aclk(processing_system7_0_FCLK_CLK0),
+        .aresetn(rst_ps7_0_100M_peripheral_aresetn),
+        .conc(u_ze_parse_conc),
+        .csum_err(u_ze_parse_csum_err),
+        .decimals(u_ze_parse_decimals),
+        .frame_valid(u_ze_parse_frame_valid),
+        .gas_type(u_ze_parse_gas_type),
+        .range(u_ze_parse_range),
+        .s_data(u_ze_uart_m_data),
+        .s_valid(u_ze_uart_m_valid),
+        .unit(u_ze_parse_unit));
+  image_block_u_ze_uart_0 u_ze_uart
+       (.aclk(processing_system7_0_FCLK_CLK0),
+        .aresetn(rst_ps7_0_100M_peripheral_aresetn),
+        .frame_err(u_ze_uart_frame_err),
+        .m_data(u_ze_uart_m_data),
+        .m_valid(u_ze_uart_m_valid),
+        .rx(ze03_rx));
   image_block_xlconst_pat2_0 xlconst_pat2
        (.dout(xlconst_pat2_dout));
   image_block_xlconst_status_0 xlconst_status

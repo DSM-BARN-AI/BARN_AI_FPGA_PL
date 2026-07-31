@@ -94,7 +94,11 @@ module image_block_sv (
   (* X_INTERFACE_IGNORE = "true" *)
   inout wire FIXED_IO_ps_clk,
   (* X_INTERFACE_IGNORE = "true" *)
-  inout wire FIXED_IO_ps_porb
+  inout wire FIXED_IO_ps_porb,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire ze03_rx,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire pms_rx
 );
 
   image_block inst (
@@ -118,7 +122,9 @@ module image_block_sv (
     .FIXED_IO_ddr_vrp(FIXED_IO_ddr_vrp),
     .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
     .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
-    .FIXED_IO_ps_porb(FIXED_IO_ps_porb)
+    .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
+    .ze03_rx(ze03_rx),
+    .pms_rx(pms_rx)
   );
 
 endmodule

@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "axis_gamma,Vivado 2025.2" *)
 (* CHECK_LICENSE_TYPE = "image_block_axis_gamma_0_0,axis_gamma,{}" *)
-(* CORE_GENERATION_INFO = "image_block_axis_gamma_0_0,axis_gamma,{x_ipProduct=Vivado 2025.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=axis_gamma,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,LUT_FILE=C_/Users/user/Desktop/project/FPGA_practice/rtl/gamma_lut.mem}" *)
+(* CORE_GENERATION_INFO = "image_block_axis_gamma_0_0,axis_gamma,{x_ipProduct=Vivado 2025.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=axis_gamma,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,LUT_FILE=C_/Users/user/Desktop/project/BARN_AI_FPGA_PL/rtl/gamma_lut.mem}" *)
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module image_block_axis_gamma_0_0 (
@@ -104,7 +104,7 @@ output wire m_axis_tuser;
 output wire m_axis_tlast;
 
   axis_gamma #(
-    .LUT_FILE("C:/Users/user/Desktop/project/FPGA_practice/rtl/gamma_lut.mem")
+    .LUT_FILE("C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/rtl/gamma_lut.mem")
   ) inst (
     .aclk(aclk),
     .aresetn(aresetn),

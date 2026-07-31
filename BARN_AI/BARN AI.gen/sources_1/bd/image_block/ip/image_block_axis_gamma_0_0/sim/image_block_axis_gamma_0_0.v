@@ -103,7 +103,7 @@ output wire m_axis_tuser;
 output wire m_axis_tlast;
 
   axis_gamma #(
-    .LUT_FILE("C:/Users/user/Desktop/project/FPGA_practice/rtl/gamma_lut.mem")
+    .LUT_FILE("C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/rtl/gamma_lut.mem")
   ) inst (
     .aclk(aclk),
     .aresetn(aresetn),

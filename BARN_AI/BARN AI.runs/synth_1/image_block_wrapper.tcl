@@ -115,6 +115,12 @@ set_property used_in_implementation false [get_files -all {{c:/Users/user/Deskto
 set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axi_smc_0/bd_0/ip/ip_36/bd_8deb_m01awn_0_ooc.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axi_smc_0/bd_0/ip/ip_37/bd_8deb_m01wn_0_ooc.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axi_smc_0/bd_0/ip/ip_38/bd_8deb_m01bn_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axi_smc_0/bd_0/ip/ip_40/bd_8deb_m02s2a_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axi_smc_0/bd_0/ip/ip_41/bd_8deb_m02arn_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axi_smc_0/bd_0/ip/ip_42/bd_8deb_m02rn_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axi_smc_0/bd_0/ip/ip_43/bd_8deb_m02awn_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axi_smc_0/bd_0/ip/ip_44/bd_8deb_m02wn_0_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axi_smc_0/bd_0/ip/ip_45/bd_8deb_m02bn_0_ooc.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axi_smc_0/ooc.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axi_smc_0/smartconnect.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_rst_ps7_0_100M_0/image_block_rst_ps7_0_100M_0_board.xdc}}]
@@ -132,6 +138,9 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/constraints/sensors.xdc
+set_property used_in_implementation false [get_files C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/constraints/sensors.xdc]
+
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1

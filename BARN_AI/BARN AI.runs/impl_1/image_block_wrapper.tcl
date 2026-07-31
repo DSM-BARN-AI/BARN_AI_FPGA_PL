@@ -128,6 +128,7 @@ OPTRACE "add files" START { }
   add_files {{C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.srcs/sources_1/bd/image_block/image_block.bd}}
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
+  read_xdc C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/constraints/sensors.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
 OPTRACE "read constraints: implementation_pre" END { }

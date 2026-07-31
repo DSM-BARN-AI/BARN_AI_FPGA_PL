@@ -73,7 +73,9 @@ COMPONENT image_block
     FIXED_IO_ddr_vrp : INOUT STD_LOGIC;
     FIXED_IO_ps_srstb : INOUT STD_LOGIC;
     FIXED_IO_ps_clk : INOUT STD_LOGIC;
-    FIXED_IO_ps_porb : INOUT STD_LOGIC
+    FIXED_IO_ps_porb : INOUT STD_LOGIC;
+    ze03_rx : IN STD_LOGIC;
+    pms_rx : IN STD_LOGIC
   );
 END COMPONENT;
 -- COMP_TAG_END ------  End cut for COMPONENT Declaration  ------
@@ -104,7 +106,9 @@ your_instance_name : image_block
     FIXED_IO_ddr_vrp => FIXED_IO_ddr_vrp,
     FIXED_IO_ps_srstb => FIXED_IO_ps_srstb,
     FIXED_IO_ps_clk => FIXED_IO_ps_clk,
-    FIXED_IO_ps_porb => FIXED_IO_ps_porb
+    FIXED_IO_ps_porb => FIXED_IO_ps_porb,
+    ze03_rx => ze03_rx,
+    pms_rx => pms_rx
   );
 -- INST_TAG_END ------  End cut for INSTANTIATION Template  ------
 

@@ -3,7 +3,7 @@
 module axis_vid_mux (
     input  wire        aclk,
     input  wire        aresetn,
-    input  wire        sel,              // 0: s0, 1: s1 (regfile CTRL[1])
+    input  wire        sel,
 
     input  wire [23:0] s0_axis_tdata,
     input  wire        s0_axis_tvalid,
@@ -24,8 +24,8 @@ module axis_vid_mux (
     output reg         m_axis_tlast
 );
 
-    reg sel_act;                         // 현재 선택된 입력
-    reg pass;                            // 0=HUNT(SOF 사냥), 1=PASS(통과)
+    reg sel_act;   // 현재 선택된 입력
+    reg pass;      // 0 = HUNT(SOF 사냥), 1 = PASS(통과)
 
     // 선택 입력 먹스
     wire        in_tvalid = sel_act ? s1_axis_tvalid : s0_axis_tvalid;
@@ -43,30 +43,34 @@ module axis_vid_mux (
                                          : (at_sof ? out_ok : 1'b1));
 
     assign s0_axis_tready = (!sel_act) ? sel_tready : 1'b0;   // 비선택 동결
-    assign s1_axis_tready = ( sel_act) ? sel_tready : 1'b0;
+    assign s1_axis_tready = (sel_act) ? sel_tready : 1'b0;
 
-    // 출력으로 나가는 수락: PASS의 모든 비트 + HUNT의 SOF 비트
+    // 출력으로 나가는 수락 : PASS의 모든 비트 + HUNT의 SOF 비트
     wire take = in_tvalid && sel_tready && (pass || in_tuser);
 
     always @(posedge aclk) begin
         if (!aresetn) begin
             sel_act       <= 1'b0;
-            pass          <= 1'b0;       // 리셋 -> HUNT (R5)
+            pass          <= 1'b0;       // 리셋 -> HUNT
             m_axis_tvalid <= 1'b0;
             m_axis_tdata  <= 24'd0;
             m_axis_tuser  <= 1'b0;
             m_axis_tlast  <= 1'b0;
-        end else begin
+        end
+        else begin
             // 상태 전이
-            if (hunt_retgt)
-                sel_act <= sel;                          // 프레임 없음, 즉시
+            if (hunt_retgt) begin
+                sel_act <= sel;          // 프레임 없음, 즉시
+            end
             else if (pass && want_switch && at_sof) begin
-                sel_act <= sel;                          // 경계 명중 (R3)
-                pass    <= 1'b0;                         // 새 소스 SOF 사냥
-            end else if (!pass && at_sof && out_ok)
-                pass <= 1'b1;                            // SOF부터 통과 시작
+                sel_act <= sel;          // 경계 명중
+                pass    <= 1'b0;         // 새 소스 SOF 사냥
+            end
+            else if (!pass && at_sof && out_ok) begin
+                pass <= 1'b1;            // SOF부터 통과 시작
+            end
 
-            // 출력 레지스터 (R1-safe)
+            // 출력 레지스터
             if (out_ok) begin
                 m_axis_tvalid <= take;
                 if (take) begin

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1785065849" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/image_block_wrapper.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1785333718" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/image_block_wrapper.dcp">
   <File Type="PA-TCL" Name="image_block_wrapper.tcl"/>
   <File Type="REPORTS-TCL" Name="image_block_wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="image_block_wrapper.vds"/>
@@ -19,49 +19,77 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../FPGA_practice/rtl/axis_tpg.v">
+    <File Path="$PPRDIR/../rtl/axis_tpg.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../FPGA_practice/rtl/axil_regfile.v">
+    <File Path="$PPRDIR/../rtl/axil_regfile.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../FPGA_practice/rtl/axis_demosaic.v">
+    <File Path="$PPRDIR/../rtl/axis_demosaic.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../FPGA_practice/rtl/axis_vid_mux.v">
+    <File Path="$PPRDIR/../rtl/axis_vid_mux.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../FPGA_practice/rtl/axis_gamma.v">
+    <File Path="$PPRDIR/../rtl/axis_gamma.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../FPGA_practice/rtl/axis_gaussian.v">
+    <File Path="$PPRDIR/../rtl/axis_gaussian.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../FPGA_practice/rtl/axis_whitebalance.v">
+    <File Path="$PPRDIR/../rtl/axis_whitebalance.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../rtl/uart_rx.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../rtl/ze03_parser.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../rtl/pms7003_parser.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../rtl/axil_sensor_regs.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -92,6 +120,12 @@
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
     <Filter Type="Constrs"/>
+    <File Path="$PPRDIR/../constraints/sensors.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
@@ -114,14 +148,20 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2025"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_vid_mux_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="image_block_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_tpg_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_u_sensor_regs_0"/>
   <BlockFileSet Type="BlockSrcs" Name="image_block_axis_wb_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="image_block_axis_demosaic_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="image_block_axis_tpg_B_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_tpg_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="image_block_axil_regfile_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_axis_vid_mux_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_u_pm_uart_0"/>
   <BlockFileSet Type="BlockSrcs" Name="image_block_axis_gamma_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="image_block_conv_b_0"/>
   <BlockFileSet Type="BlockSrcs" Name="image_block_axis_gaussian_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_axi_smc_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_u_ze_uart_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_u_ze_parse_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="image_block_u_pm_parse_0"/>
 </GenRun>
