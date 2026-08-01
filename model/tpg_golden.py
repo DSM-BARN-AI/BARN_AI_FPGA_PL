@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Golden model + comparator for axis_tpg (BARN AI step 1).
 
-Pattern definitions must match docs/01_tpg_spec.md section 6 exactly.
+Pattern definitions must match docs/01_tpg_spec.txt section 6 exactly.
 
 Generate golden hex:
   python model/tpg_golden.py --width 64 --height 48 --pattern 0 --frames 2 --out golden.hex

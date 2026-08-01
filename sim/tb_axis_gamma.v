@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 // ============================================================
 // tb_axis_gamma - self-checking TB (verification infra)
-// spec: docs/05_gamma_mux_spec.md section B
+// spec: docs/05_gamma_mux_spec.txt section B
 //
 // stimulus : gamma_in.hex   expected : gamma_exp.hex
 // (both from gamma_golden.py; LUT file = gamma_lut.mem, DUT도 같은

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Golden model + comparator for axis_demosaic (BARN AI step 4).
 
-Contract = docs/04_demosaic_spec.md sections 4-6, bit-exact:
+Contract = docs/04_demosaic_spec.txt sections 4-6, bit-exact:
   - pixel class from (y&1 ^ phase>>1, x&1 ^ phase&1): R / Gr / Gb / B
   - bilinear 3x3, border = coordinate clamp (edge replicate)
   - rounding = truncation (floor) on >>1 and >>2

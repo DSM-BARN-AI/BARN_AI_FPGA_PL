@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 // ============================================================
 // tb_axis_demosaic - self-checking TB (verification infra)
-// spec: docs/04_demosaic_spec.md
+// spec: docs/04_demosaic_spec.txt
 //
 // stimulus : bayer_in.hex  (demosaic_golden.py --gen)
 // expected : rgb_exp.hex   (demosaic_golden.py --exp)

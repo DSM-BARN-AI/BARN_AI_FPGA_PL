@@ -1,7 +1,7 @@
 /* ============================================================
  * BARN AI step 2 - TPG -> AXI VDMA (S2MM) -> DDR capture test
  * Bare-metal (standalone), Vitis 2025.2, Zybo Z7-20
- * Guide: docs/02_vdma_capture_guide.md (register map: section 8)
+ * Guide: docs/02_vdma_capture_guide.txt (register map: section 8)
  *
  * Provided verification infra - the DUT here is the block design,
  * not this file. Reads back captured frames and checks them against
@@ -49,7 +49,28 @@
 #define BUF_BASE      0x02000000u             /* DDR, away from code/heap */
 #define FRAME_B       (STRIDE_B * V_ACTIVE)
 
-#define DUMP_FRAME    1   /* 1: dump buffer0 as hex for PC compare */
+#define DUMP_FRAME    0   /* 1: dump buffer0 as hex for PC compare (3072 lines!) */
+
+/* ---- step10~12 sensor block (axil_sensor_regs) ----
+ * base fixed by scripts/add_sensor_bd.tcl. Chain in PL:
+ *   rx pin -> uart_rx -> {ze03,pms7003}_parser -> these registers.
+ * READ ORDER: write SNAPSHOT first, then read - values span several
+ * words, and without the snapshot a new frame landing mid-read would
+ * mix two frames (tearing).                                          */
+#define SENSOR_TEST   1   /* 1: poll the sensor block after the capture */
+#define SENS_BASE     0x43C10000u
+#define SENS_ID       0x00   /* RO magic 0xBA511101              */
+#define SENS_SNAP     0x04   /* WO: latch all values into shadow */
+#define SENS_ZE_CONC  0x08   /* [15:0]=conc  [31:16]=full range  */
+#define SENS_ZE_INFO  0x0C   /* [7:0]=gas [15:8]=unit [23:16]=dec*/
+#define SENS_ZE_CNT   0x10   /* [15:0]=frames [31:16]=csum_err   */
+#define SENS_ZE_UERR  0x14   /* [15:0]=uart framing errors       */
+#define SENS_PM_A     0x18   /* [15:0]=PM1.0 [31:16]=PM2.5       */
+#define SENS_PM_B     0x1C   /* [15:0]=PM10                      */
+#define SENS_PM_CNT   0x20
+#define SENS_PM_UERR  0x24
+#define SENS_MAGIC    0xBA511101u
+#define SENS_POLLS    5      /* 1 s apart; sensors emit ~1 frame/s */
 
 /* step5: which mux path to capture (compile-time).
  *  0 = TPG-A -> mux(s0) -> gamma  (color bars; bars are gamma-invariant
@@ -190,6 +211,55 @@ int main(void)
             print_hex6(read_pixel(line, xp));
     }
     xil_printf("---FRAME-END---\r\n");
+#endif
+
+#if SENSOR_TEST
+    /* 7) sensor block (docs/12). Without sensors wired this still proves the
+     *    AXI-Lite path and that the PL block is in the bitstream: ID must
+     *    read back, and every counter must stay 0 (nothing arriving).
+     *    With sensors wired, frame counters tick ~1/s and values appear.  */
+    {
+        int p;
+        u32 id = Xil_In32(SENS_BASE + SENS_ID);
+        u32 zc, zi, zn, zu, pa, pb, pn, pu;
+        u32 zf_prev = 0, pf_prev = 0;
+
+        xil_printf("\r\n== sensor block @0x%08x ==\r\n", SENS_BASE);
+        xil_printf("sensor ID       = 0x%08x (expect 0x%08x)\r\n", id, SENS_MAGIC);
+        if (id != SENS_MAGIC) {
+            xil_printf("FATAL: sensor ID mismatch - stale bitstream?\r\n");
+        } else {
+            xil_printf("poll  ZE03[conc gas/unit/dec frm/csum/uart]  PMS[1.0 2.5 10 frm/csum/uart]\r\n");
+            for (p = 0; p < SENS_POLLS; p++) {
+                Xil_Out32(SENS_BASE + SENS_SNAP, 1);   /* freeze, then read */
+                zc = Xil_In32(SENS_BASE + SENS_ZE_CONC);
+                zi = Xil_In32(SENS_BASE + SENS_ZE_INFO);
+                zn = Xil_In32(SENS_BASE + SENS_ZE_CNT);
+                zu = Xil_In32(SENS_BASE + SENS_ZE_UERR);
+                pa = Xil_In32(SENS_BASE + SENS_PM_A);
+                pb = Xil_In32(SENS_BASE + SENS_PM_B);
+                pn = Xil_In32(SENS_BASE + SENS_PM_CNT);
+                pu = Xil_In32(SENS_BASE + SENS_PM_UERR);
+
+                xil_printf("[%d] ZE %5d %02x/%02x/%d %d/%d/%d | "
+                           "PM %5d %5d %5d %d/%d/%d\r\n", p,
+                           zc & 0xFFFF,                       /* conc      */
+                           zi & 0xFF, (zi >> 8) & 0xFF, (zi >> 16) & 0xFF,
+                           zn & 0xFFFF, (zn >> 16) & 0xFFFF, zu & 0xFFFF,
+                           pa & 0xFFFF, (pa >> 16) & 0xFFFF,  /* PM1.0/2.5 */
+                           pb & 0xFFFF,                       /* PM10      */
+                           pn & 0xFFFF, (pn >> 16) & 0xFFFF, pu & 0xFFFF);
+                zf_prev = zn & 0xFFFF;
+                pf_prev = pn & 0xFFFF;
+                sleep(1);
+            }
+            /* diagnosis hint - see docs/12 section 5 */
+            if (zf_prev == 0 && pf_prev == 0)
+                xil_printf("no frames on either sensor: not wired / no power / wrong pin?\r\n");
+            else
+                xil_printf("frames seen - ZE03=%d PMS=%d\r\n", zf_prev, pf_prev);
+        }
+    }
 #endif
 
     xil_printf("done.\r\n");

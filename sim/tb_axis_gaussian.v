@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 // ============================================================
 // tb_axis_gaussian - self-checking TB (verification infra)
-// spec: docs/09_gaussian_spec.md  (demosaic TB 골격 재사용, 24비트)
+// spec: docs/09_gaussian_spec.txt  (demosaic TB 골격 재사용, 24비트)
 //
 // stimulus : gauss_in.hex   expected : gauss_exp.hex  (gaussian_golden.py)
 // dump     : gauss_out.hex

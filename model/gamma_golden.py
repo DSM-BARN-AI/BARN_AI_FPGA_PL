@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Golden model + comparator for axis_gamma (BARN AI step 5).
 
-Contract = docs/05_gamma_mux_spec.md section B: per-channel 256x8 LUT,
+Contract = docs/05_gamma_mux_spec.txt section B: per-channel 256x8 LUT,
 same curve on R/G/B. The .mem FILE is the single source of truth -
 RTL ($readmemh) and this model both read it, so bit-match is automatic.
 

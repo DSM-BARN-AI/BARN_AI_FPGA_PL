@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 // ============================================================
 // tb_axis_wb - self-checking TB (verification infra)
-// spec: docs/08_wb_spec.md
+// spec: docs/08_wb_spec.txt
 //
 // stimulus : wb_in.hex   expected : wb_exp.hex  (wb_golden.py)
 // dump     : wb_out.hex

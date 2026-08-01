@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 // ============================================================
 // tb_axis_vid_mux - self-checking TB (verification infra)
-// spec: docs/05_gamma_mux_spec.md section C
+// spec: docs/05_gamma_mux_spec.txt section C
 //
 // 스티뮬러스 = 검증된 axis_tpg 2개 실인스턴스:
 //   s0: pattern 0 (컬러바) / s1: pattern 3 (단색 0x808080)
