@@ -1,0 +1,280 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Sun Jul 26 20:37:49 2026
+# Process ID         : 9008
+# Current directory  : C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/image_block_axis_gaussian_0_0_synth_1
+# Command line       : vivado.exe -log image_block_axis_gaussian_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source image_block_axis_gaussian_0_0.tcl
+# Log file           : C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/image_block_axis_gaussian_0_0_synth_1/image_block_axis_gaussian_0_0.vds
+# Journal file       : C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/image_block_axis_gaussian_0_0_synth_1\vivado.jou
+# Running On         : LAPTOP-MPD8ATBV
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) 5 120U
+# CPU Frequency      : 2496 MHz
+# CPU Physical cores : 10
+# CPU Logical cores  : 12
+# Host memory        : 16845 MB
+# Swap memory        : 9126 MB
+# Total Virtual      : 25972 MB
+# Available Virtual  : 7162 MB
+#-----------------------------------------------------------
+source image_block_axis_gaussian_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:36 ; elapsed = 00:01:37 . Memory (MB): peak = 558.250 ; gain = 223.617
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/AMDDesignTools/2025.2/Vivado/data/ip'.
+Command: synth_design -top image_block_axis_gaussian_0_0 -part xc7z020clg400-1 -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 5864
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:23 ; elapsed = 00:00:40 . Memory (MB): peak = 1351.285 ; gain = 539.523
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'image_block_axis_gaussian_0_0' [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axis_gaussian_0_0/synth/image_block_axis_gaussian_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'axis_gaussian' [C:/Users/user/Desktop/project/FPGA_practice/rtl/axis_gaussian.v:13]
+	Parameter H_ACTIVE bound to: 64 - type: integer 
+	Parameter V_ACTIVE bound to: 48 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'axis_gaussian' (0#1) [C:/Users/user/Desktop/project/FPGA_practice/rtl/axis_gaussian.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'image_block_axis_gaussian_0_0' (0#1) [c:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.gen/sources_1/bd/image_block/ip/image_block_axis_gaussian_0_0/synth/image_block_axis_gaussian_0_0.v:53]
+INFO: [Synth 8-7129] Port s_axis_tuser in module axis_gaussian is either unconnected or has no load
+INFO: [Synth 8-7129] Port s_axis_tlast in module axis_gaussian is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:30 ; elapsed = 00:00:51 . Memory (MB): peak = 1479.344 ; gain = 667.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:51 . Memory (MB): peak = 1479.344 ; gain = 667.582
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:30 ; elapsed = 00:00:51 . Memory (MB): peak = 1479.344 ; gain = 667.582
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.098 . Memory (MB): peak = 1479.344 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1529.082 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.289 . Memory (MB): peak = 1529.168 ; gain = 0.086
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:01:01 ; elapsed = 00:02:03 . Memory (MB): peak = 1529.168 ; gain = 717.406
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:01 ; elapsed = 00:02:03 . Memory (MB): peak = 1529.168 ; gain = 717.406
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:01 ; elapsed = 00:02:03 . Memory (MB): peak = 1529.168 ; gain = 717.406
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3936] Found unconnected internal register 'wp1_a_reg' and it is trimmed from '12' to '6' bits. [C:/Users/user/Desktop/project/FPGA_practice/rtl/axis_gaussian.v:58]
+WARNING: [Synth 8-3936] Found unconnected internal register 'wp0_a_reg' and it is trimmed from '12' to '6' bits. [C:/Users/user/Desktop/project/FPGA_practice/rtl/axis_gaussian.v:61]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:03 ; elapsed = 00:02:07 . Memory (MB): peak = 1529.168 ; gain = 717.406
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   12 Bit       Adders := 4     
+	   9 Input   12 Bit       Adders := 3     
+	   2 Input    2 Bit       Adders := 1     
++---Registers : 
+	               24 Bit    Registers := 14    
+	               12 Bit    Registers := 7     
+	                6 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 12    
++---RAMs : 
+	               1K Bit	(64 X 24 bit)          RAMs := 2     
++---Muxes : 
+	   2 Input   24 Bit        Muxes := 8     
+	   2 Input   12 Bit        Muxes := 4     
+	   2 Input    6 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 4     
+	   2 Input    1 Bit        Muxes := 13    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7129] Port s_axis_tuser in module image_block_axis_gaussian_0_0 is either unconnected or has no load
+INFO: [Synth 8-7129] Port s_axis_tlast in module image_block_axis_gaussian_0_0 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:15 ; elapsed = 00:02:30 . Memory (MB): peak = 1536.707 ; gain = 724.945
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                   | RTL Object    | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|image_block_axis_gaussian_0_0 | inst/buf1_reg | 64 x 24(READ_FIRST)    | W |   | 64 x 24(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|image_block_axis_gaussian_0_0 | inst/buf0_reg | 64 x 24(READ_FIRST)    | W |   | 64 x 24(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
++------------------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:15 ; elapsed = 00:02:31 . Memory (MB): peak = 1536.707 ; gain = 724.945
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++------------------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name                   | RTL Object    | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|image_block_axis_gaussian_0_0 | inst/buf1_reg | 64 x 24(READ_FIRST)    | W |   | 64 x 24(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|image_block_axis_gaussian_0_0 | inst/buf0_reg | 64 x 24(READ_FIRST)    | W |   | 64 x 24(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
++------------------------------+---------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance inst/buf1_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance inst/buf0_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:16 ; elapsed = 00:02:32 . Memory (MB): peak = 1539.973 ; gain = 728.211
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:38 ; elapsed = 00:03:13 . Memory (MB): peak = 1761.883 ; gain = 950.121
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:38 ; elapsed = 00:03:13 . Memory (MB): peak = 1761.883 ; gain = 950.121
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:38 ; elapsed = 00:03:13 . Memory (MB): peak = 1761.883 ; gain = 950.121
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:38 ; elapsed = 00:03:13 . Memory (MB): peak = 1761.883 ; gain = 950.121
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:38 ; elapsed = 00:03:14 . Memory (MB): peak = 1761.898 ; gain = 950.137
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:38 ; elapsed = 00:03:14 . Memory (MB): peak = 1761.898 ; gain = 950.137
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |    48|
+|2     |LUT1     |    14|
+|3     |LUT2     |    34|
+|4     |LUT3     |    76|
+|5     |LUT4     |    81|
+|6     |LUT5     |   124|
+|7     |LUT6     |    73|
+|8     |RAMB18E1 |     2|
+|9     |FDRE     |   423|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:38 ; elapsed = 00:03:14 . Memory (MB): peak = 1761.898 ; gain = 950.137
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:03 ; elapsed = 00:03:02 . Memory (MB): peak = 1761.898 ; gain = 900.312
+Synthesis Optimization Complete : Time (s): cpu = 00:01:38 ; elapsed = 00:03:14 . Memory (MB): peak = 1761.898 ; gain = 950.137
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 1773.973 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 50 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1869.078 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: f8262541
+INFO: [Common 17-83] Releasing license: Synthesis
+28 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:56 ; elapsed = 00:04:38 . Memory (MB): peak = 1869.078 ; gain = 1280.355
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.032 . Memory (MB): peak = 1869.078 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/user/Desktop/project/BARN_AI_FPGA_PL/BARN_AI/BARN AI.runs/image_block_axis_gaussian_0_0_synth_1/image_block_axis_gaussian_0_0.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file image_block_axis_gaussian_0_0_utilization_synth.rpt -pb image_block_axis_gaussian_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Jul 26 20:46:13 2026...
